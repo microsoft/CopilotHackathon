@@ -1,0 +1,13 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "main": "nodeserver.js",
+  "scripts": {
+    "start": "node nodeserver.js",
+    "test": "mocha test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
