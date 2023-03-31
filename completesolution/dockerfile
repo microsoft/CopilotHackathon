@@ -22,5 +22,8 @@ EXPOSE 3000
 # Run Nodeserver.js when the container launches
 CMD ["node", "nodeserver.js"]
 
-# create command to run docker in port 4000
+# Write a docker comand to build the image and tag it as mynodeapp
+#docker build -t mynodeapp .
+
+# Write command to run docker in port 4000
 #docker run -p 4000:3000 -d <image id>

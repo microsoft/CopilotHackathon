@@ -14,4 +14,4 @@
 
 # Run Nodeserver.js when the container launches
 
-
+# Write a docker comand to build the image and tag it as mynodeapp
