@@ -12,7 +12,7 @@ dotnet new webapi
 
 - A a new file IUserService in the Abstractions folder, and instruct Copilot to generate an interface for you.
 
-- Run the app using
+- Run the app using (if you are working with Github Codespace remove https redirection from Startup.cs)
 
 ```  powershell
 dotnet run
