@@ -31,3 +31,15 @@ builder.Services.AddSingleton<IUserService, UserService>();
 ```  powershell
 dotnet run
 ```
+
+## Docker
+- Publish the app using
+``` dotnet
+dotnet publish -c Release -o publish
+```
+- Using a Dockerfile put the app in a container and run it
+
+``` powershell
+docker build -t dotnetapp .
+docker run -d -p 8080:80 --name dotnetapp dotnetapp
+```
