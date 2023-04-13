@@ -1,24 +1,22 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-	"name": "Node.js",
+	"name": "Hackathon dev container",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	// "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18"
-	// "build": {
-	// 	// Path is relataive to the devcontainer.json file.
-	// 	"dockerfile": "Dockerfile"
-	// },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install --global mocha",
-	// Configure tool-specific properties.
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"version": "lts"
+		},
+		"ghcr.io/devcontainers-contrib/features/mocha:2": {
+			"version": "latest"
+		}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"GitHub.copilot-nightly",
+				"GitHub.copilot",
 				"GitHub.copilot-labs",
 				"redhat.vscode-yaml",
 				"GitHub.vscode-github-actions",
@@ -26,6 +24,19 @@
 			]
 		}
 	}
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
+	// "portsAttributes": {
+	//		"5001": {
+	//			"protocol": "https"
+	//		}
+	// }
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
+	// Configure tool-specific properties.
+	// "customizations": {},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	// "remoteUser": "root"	
 }
