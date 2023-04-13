@@ -1,3 +1,4 @@
+## Create dotnet WebAPI project
 - Create a new NET project using 
 
 ```  powershell
@@ -38,6 +39,14 @@ dotnet run
 dotnet publish -c Release -o publish
 ```
 - Using a Dockerfile put the app in a container and run it
+- Instruct Copilot to generate a Dockerfile for you using
+``` dockerfile
+# Use the aspnetcore 6.0 runtime image as the base image
+
+# Copy publish forler to image
+
+# Run app
+```
 
 ``` powershell
 docker build -t dotnetapp .

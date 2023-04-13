@@ -1,5 +1,5 @@
-#user dotnet runtime
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+#use the aspnetcore 6.0 runtime image as the base image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 # Copy publish forler to image
 COPY ./publish .
