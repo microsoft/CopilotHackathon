@@ -1,0 +1,18 @@
+# create github action to run npm check command
+# name it npm-check
+# run it on pull request
+# use the latest version of node
+# run npm --check command
+# if there are any errors, fail the build
+name: npm-check
+on: [pull_request]
+jobs:
+  npm-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 'latest'
+      - run: npm --check
+        if: failure()
