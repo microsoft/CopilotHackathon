@@ -4,6 +4,7 @@ Demo project for running labs to evaluate Copilot viability
 
 - [Goal](#goal)
 - [Pre-requisites](#pre-requisites)
+- [Work with Github Codespaces](#work-with-github-codespaces)
 - [Work locally](#work-locally)
 - [Instructions](#instructions)
 
@@ -26,6 +27,12 @@ Remember:
 
 A 60 day trial can be requested here: https://github.com/github-copilot/signup
 
+## Work with Github Codespaces
+
+Environment is already configured to work with Github Codespaces, you can find the configuration files in the .devcontainer folder.
+
+To start programming just start a new codespace and you are ready to go, don't need to install anything.
+
 ### Work locally
 
 **VisualStudio Code**
@@ -40,8 +47,10 @@ https://code.visualstudio.com/
 
 run:
 
+``` bash
  npm install --global mocha
  npm install axios
+```
 
 **Install Docker**
 
