@@ -1,0 +1,6 @@
+# Add exclusion for .NET Core projects
+obj
+bin
+.vs
+.vscode
+publish
