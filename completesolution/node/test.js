@@ -14,7 +14,7 @@ const server = require('./NodeServer');
 describe('Node Server', () => {
     it('should return "key not passed" if key is not passed', (done) => {
         http
-        .get('http://localhost:3000/get' , (res) => {
+        .get('http://localhost:3000/Get' , (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -28,7 +28,7 @@ describe('Node Server', () => {
 
     
     it('should return the value of the key if key is found', (done) => {
-        http.get('http://localhost:3000/get?key=world', (res) => {
+        http.get('http://localhost:3000/Get?key=world', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -42,7 +42,7 @@ describe('Node Server', () => {
 
     //add test to check validatephoneNumber
     it('should return "valid" if phoneNumber is valid', (done) => {
-        http.get('http://localhost:3000/validatephonenumber?phoneNumber=34666666666', (res) => {
+        http.get('http://localhost:3000/Validatephonenumber?phoneNumber=34666666666', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -56,7 +56,7 @@ describe('Node Server', () => {
 
     //write test to validate spanish DNI
     it('should return "valid" if spanish DNI 86471508H is valid', (done) => {
-        http.get('http://localhost:3000/validateSpanishDNI?dni=86471508H', (res) => {
+        http.get('http://localhost:3000/ValidateSpanishDNI?dni=86471508H', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -72,7 +72,7 @@ describe('Node Server', () => {
     
     //write test to validate spanish DNI
     it('should return "valid" if spanish DNI 24153149K is valid', (done) => {
-        http.get('http://localhost:3000/validateSpanishDNI?dni=24153149K', (res) => {
+        http.get('http://localhost:3000/ValidateSpanishDNI?dni=24153149K', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -87,7 +87,7 @@ describe('Node Server', () => {
 
     //write test to validate spanish DNI
     it('should return "valid" if spanish DNI 12345678A is invalid', (done) => {
-        http.get('http://localhost:3000/validateSpanishDNI?dni=12345678A', (res) => {
+        http.get('http://localhost:3000/ValidateSpanishDNI?dni=12345678A', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
@@ -101,13 +101,13 @@ describe('Node Server', () => {
 
     //write test for returnColorCode
     it('should return "red" if color is red', (done) => {
-        http.get('http://localhost:3000/returnColorCode?color=red', (res) => {
+        http.get('http://localhost:3000/ReturnColorCode?color=red', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
             });
             res.on('end', () => {
-                assert.equal(data, '#FFFF00');
+                assert.equal(data, '#FF0000');
                 done();
             });
         });
@@ -115,7 +115,7 @@ describe('Node Server', () => {
 
    //write test for daysBetweenDates
     it('should return "1" if dates are 2020-01-01 and 2020-01-02', (done) => {
-        http.get('http://localhost:3000/daysBetweenDates?date1=2020-01-01&date2=2020-01-02', (res) => {
+        http.get('http://localhost:3000/DaysBetweenDates?date1=2020-01-01&date2=2020-01-02', (res) => {
             let data = '';
             res.on('data', (chunk) => {
                 data += chunk;
