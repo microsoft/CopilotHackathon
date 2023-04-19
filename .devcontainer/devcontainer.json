@@ -11,6 +11,9 @@
 		},
 		"ghcr.io/devcontainers-contrib/features/mocha:2": {
 			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {
+			"version": "latest"
 		}
 	},
 	"customizations": {
