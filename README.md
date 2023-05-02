@@ -18,7 +18,7 @@ Remember:
 
 - As you type GitHub Copilot will make suggestions, you can accept them by pressing Tab.
 - If nothing shows up after Copilot write some lines , press enter and wait a couple of seconds.
-- On Windows or Linux, press Ctrl + Enter, then click Open GitHub Copilot.
+- On Windows, MacOS or Linux, press Ctrl + Enter, then click Open GitHub Copilot.
 
 
 ## Pre-requisites
