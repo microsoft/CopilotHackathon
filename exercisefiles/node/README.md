@@ -4,7 +4,7 @@ Demo project for running labs to evaluate Copilot viability
 
 ## Instructions
 
-- Download to local the exercicefile folder
+- Download to local the exercisefile folder
 - Open NodeServer.js and begin by writing a Nodejs server, check the first suggestions based on the initial text
 - Open test.js file and analyze the current test
 - Open a command prompt and run the test (mocha test.js)
