@@ -1,4 +1,4 @@
-# Activate GitHub Copilot using Nodejs and .NET Core
+# Activate GitHub Copilot using Nodejs and .NET
 
 Demo project for running labs to evaluate Copilot viability
 
@@ -56,7 +56,7 @@ run:
 
 https://docs.docker.com/engine/install/
 
-**Install .NET Core**
+**Install .NET**
 
 https://dotnet.microsoft.com/download
 
