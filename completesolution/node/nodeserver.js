@@ -7,12 +7,10 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
+const escape = require('escape-html');
 
 const server = http.createServer((req, res) => {
-
-
-    
-      if (req.url.startsWith('/DaysBetweenDates')) {
+    if (req.url.startsWith('/DaysBetweenDates')) {
         //calculate days between two dates
 
         //get dates from querystring
@@ -30,7 +28,7 @@ const server = http.createServer((req, res) => {
         //convert to days and return
         res.end(Math.round(difference_ms / 86400000) + " days");
 
-    }     else if (req.url.startsWith('/Validatephonenumber')) {
+    } else if (req.url.startsWith('/Validatephonenumber')) {
 
         //get phoneNumber var from querystring
         var queryData = url.parse(req.url, true).query;
@@ -65,7 +63,7 @@ const server = http.createServer((req, res) => {
         else {
             res.end("invalid");
         }
-        
+
     } else if (req.url.startsWith('/ReturnColorCode')) {
 
         //read colors.json file and return the rgba field
@@ -117,12 +115,12 @@ const server = http.createServer((req, res) => {
         var queryData = url.parse(req.url, true).query;
         var director = queryData.director;
 
-         //make a call to the movie api omdbapi.com and return a list of movies of that director using axios
+        //make a call to the movie api omdbapi.com and return a list of movies of that director using axios
         const axios = require('axios');
 
         axios.get('http://www.omdbapi.com/?apikey=XXXXXXX&s=' + director)
             .then(function (response) {
-                
+
                 //return the full list of movies
                 var movies = "";
                 for (var i = 0; i < response.data.Search.length; i++) {
@@ -130,7 +128,7 @@ const server = http.createServer((req, res) => {
                 }
 
                 res.end(movies);
-                
+
             }
             )
             .catch(function (error) {
@@ -142,9 +140,6 @@ const server = http.createServer((req, res) => {
                 // always executed
             }
             );
-
-
-  
     }
     //If url equals to ParseUrl
     else if (req.url.startsWith('/ParseUrl')) {
@@ -164,10 +159,10 @@ const server = http.createServer((req, res) => {
         var hash = urlObj.hash;
 
         //return the parsed host
-        res.end("host: " + host );
+        res.end("host: " + host);
 
     }
-//if url contains listFiles in current directory
+    //if url contains listFiles in current directory
     else if (req.url.startsWith('/ListFiles')) {
 
         //get the current directory
@@ -177,7 +172,7 @@ const server = http.createServer((req, res) => {
         var files = fs.readdirSync(currentDir);
 
         //return the list of files
-        res.end(files.toString());
+        res.end(escape(files.toString()));
 
     }
     else if (req.url.startsWith('/GetFullTextFile')) {
@@ -194,11 +189,9 @@ const server = http.createServer((req, res) => {
         }
 
         res.end(linesFound);
-
-
     }
     else if (req.url.startsWith('/GetLineByLinefromtTextFile')) {
-    
+
         //read sample.txt line by line
         var lineReader = require('readline').createInterface({
             input: require('fs').createReadStream('sample.txt')
@@ -223,11 +216,11 @@ const server = http.createServer((req, res) => {
         });
     }
     else if (req.url.startsWith('/CalculateMemoryConsumption')) {
-    
-            //return the memory consumption of the process in GB, rounded to 2 decimals
-            var memory = process.memoryUsage().heapUsed / 1024 / 1024;
 
-            res.end(memory.toFixed(2) + " GB");
+        //return the memory consumption of the process in GB, rounded to 2 decimals
+        var memory = process.memoryUsage().heapUsed / 1024 / 1024;
+
+        res.end(memory.toFixed(2) + " GB");
 
     }
     else if (req.url.startsWith('/MakeZipFile')) {
@@ -315,29 +308,20 @@ const server = http.createServer((req, res) => {
         if (!key) {
             res.end('key not passed');
         } else {
-            res.end('hello ' + key);
+            res.end('hello ' + escape(key));
         }
-    } 
+    }
     else {
         res.end('Called method not found');
     }
-
-
-
-
-
 });
 
 server.listen(3000, () => {
     console.log('server is listening on port 3000');
 });
 
-
-
-
 //write command line to generate package.json
 //npm init -y
 
 //write curl command to getMoviesByDirector
 //curl http://localhost:3000/getMoviesByDirector?director=Quentin%20Tarantino
-
