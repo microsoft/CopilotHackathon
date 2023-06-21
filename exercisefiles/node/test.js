@@ -6,10 +6,7 @@
 
 const assert = require('assert');
 const http = require('http');
-
-const server = require('./NodeServer');
-
-
+const server = require('./nodeserver');
 
 describe('Node Server', () => {
     it('should return "key not passed" if key is not passed', (done) => {
