@@ -1,4 +1,4 @@
-# Activate GitHub Copilot using Nodejs and .NET
+# GitHub Copilot Hackaton using Nodejs and .NET
 
 Demo project for running labs to evaluate Copilot viability
 
@@ -10,9 +10,9 @@ Demo project for running labs to evaluate Copilot viability
 
 ## Goal
 
-The goal of a GitHub Copilot Activate is to learn how to use it, using an exercise that consist of building a web server using Nodejs with different functionalities and a .NET Web API.
+The goal of a GitHub Copilot Hackaton is to learn how to use it, using an exercise that consist of building a web server using Nodejs with different functionalities and a .NET Web API.
 
- Copilot is an AI-powered code assistant that helps developers write better code faster. It uses machine learning models trained on billions of lines of code to suggest whole lines or entire functions based on the context of what you’re working on. By using Copilot, you can learn how to write better code and improve your productivity.
+GitHub Copilot is an AI-powered code assistant that helps developers write better code faster. It uses machine learning models trained on billions of lines of code to suggest whole lines or entire functions based on the context of what you’re working on. By using Copilot, you can learn how to write better code and improve your productivity.
 
 Remember:
 
@@ -20,14 +20,13 @@ Remember:
 - If nothing shows up after Copilot write some lines , press enter and wait a couple of seconds.
 - On Windows, MacOS or Linux, press Ctrl + Enter, then click Open GitHub Copilot.
 
-
 ## Pre-requisites
 
-**CoPilot access**
+**GitHub Copilot access**
 
 A 60 day trial can be requested here: https://github.com/github-copilot/signup
 
-## Work with Github Codespaces
+## Work with GitHub Codespaces
 
 Environment is already configured to work with Github Codespaces, you can find the configuration files in the .devcontainer folder.
 
