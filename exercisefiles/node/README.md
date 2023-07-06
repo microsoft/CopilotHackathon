@@ -50,7 +50,7 @@ Return a hello world message
 
 Calculate days between two dates
 
-receive by query string 2 parameters date1 and date 2 , and calcualte the days that are between those two dates.
+receive by query string 2 parameters date1 and date 2, and calculate the days between those two dates.
 
 - **/Validatephonenumber**: 
 
@@ -142,11 +142,9 @@ Return a random country from the array
 
 Return the country and its iso code
 
-
 ## GitHub Copilot Labs exercises
 
-These tasks can be performed with the Copilot labs add-in, currently PREVIEW functionality, expect some bugs.
-
+THe following tasks can be performed using the Copilot labs add-in, currently PREVIEW functionality, expect some bugs.
 
 Make sure to install the GitHub Copilot labs extension: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs
 
@@ -162,7 +160,7 @@ Select some source code, like this line:
 
     var randomCountry = countries[Math.floor(Math.random() * countries.length)];
 
-In "LANGUAGE TRANSLATION" section select python and click "As Copilot" button, you should see new code in python (sometimes you'll need to click twice in the button).
+In "LANGUAGE TRANSLATION" section select python and click "Ask Copilot" button, you should see new code in python.
 
 - **Readable**
 
