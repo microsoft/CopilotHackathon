@@ -1,9 +1,9 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
-	"name": "Hackathon dev container",
+	"name": "GitHub Copilot Hackathon",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
 			"nodeGypDependencies": true,
@@ -23,11 +23,12 @@
 				"GitHub.copilot-labs",
 				"redhat.vscode-yaml",
 				"GitHub.vscode-github-actions",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"ms-dotnettools.csdevkit"
 			]
 		}
 	},
-	"postCreateCommand": "cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/dotnet.csproj"
+	"postCreateCommand": "cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/MinimalAPI.sln; dotnet restore ./exercisefiles/dotnet/MinimalAPI.sln"
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
