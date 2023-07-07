@@ -16,7 +16,7 @@
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/java:1": {
-			"version": "17.0.7",
+			"version": "17",
 			"installMaven": true
 		}
 	},
@@ -25,6 +25,7 @@
 			"extensions": [
 				"GitHub.copilot",
 				"GitHub.copilot-labs",
+				"GitHub.copilot-chat",
 				"redhat.vscode-yaml",
 				"GitHub.vscode-github-actions",
 				"ms-azuretools.vscode-docker",
