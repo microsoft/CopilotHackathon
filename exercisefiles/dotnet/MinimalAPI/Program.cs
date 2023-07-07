@@ -1,14 +1,9 @@
-using Abstractions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IUserService, UserService>();
 
 var app = builder.Build();
 
@@ -21,10 +16,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
-
-
+// ADD NEW ENDPOINTS HERE
 
 app.Run();
+
+// Needed to be able to access this type from the MinimalAPI.Tests project.
+public partial class Program
+{ }
