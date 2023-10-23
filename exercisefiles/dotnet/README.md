@@ -1,8 +1,8 @@
 # Goal
 
-The goal is to create a Minimal WebAPI using .NET 7.0 and a corresponding Docker image with the help of GitHub Copilot.
+The goal is to create a minimal web API using .NET 7.0 and a corresponding Docker image with the help of GitHub Copilot.
 Follow the instructions below and try to use GitHub Copilot as much as possible.
-Try different things and see what GitHub Copilot can do for you, like generating a Dockerfile or a class, add comments, etc.
+Try different things and see what GitHub Copilot can do for you, like generate a Dockerfile or a class, add comments, etc.
 
 > Make sure GitHub Copilot is configure and enabled for the current laguage, just check the status bar on the bottom right corner of VS Code.
 
@@ -10,7 +10,7 @@ Try different things and see what GitHub Copilot can do for you, like generating
 
 The `dotnet` folder contains the `MinimalAPI.sln` solution, with 2 projects:
 
-- `MinimalAPI` is a minimal WebAPI project created using `dotnet new webapi -minimal`
+- `MinimalAPI` is a minimal Web API project created using `dotnet new webapi -minimal`
 - `MinimalAPI.Tests` is a minimal xUnit project created using `dotnet new xunit`
 
 To run the tests, open a terminal in the `dotnet` folder and run:
@@ -47,15 +47,11 @@ Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration:
 
 - **/DaysBetweenDates**: 
 
-Calculate days between two dates
-
-receive by query string 2 parameters date1 and date 2, and calculate the days between those two dates.
+Calculate the number of days between two dates specified via query string parameters, 'date1' and 'date2'.
 
 - **/validatephonenumber**: 
 
-Receive by querystring a parameter called phoneNumber 
-validate phoneNumber with Spanish format, for example +34666777888
-if phoneNumber is valid return true
+Receive a parameter called "phoneNumber" via query string and validate it for the Spanish format, such as "+34666777888." If the phoneNumber is valid, return "true."
 
 - **/validatespanishdni**:
 
@@ -65,17 +61,17 @@ if DNI is valid return "valid"
 if DNI is not valid return "invalid"
 
 We will create automated tests to check that the functionality is correctly implemented.
-When the development is completed, we will build a container using Docker
+When the development is complete, we will build a container using Docker
 
 - **/returncolorcode**:
 
 Receive by querystring a parameter called color
 
-read colors.json file and return the rgba field
+read the colors.json file and return the rgba field
 
 get color var from querystring
 
-iterate for each color in colors.json to find the color
+Iterate for each color in colors.json to find the color
 
 return the code.hex field
 
@@ -85,17 +81,17 @@ Make a call to the joke api and return a random joke using axios
         
 - **/moviesbydirector**:
 
-(this will require to browse to https://www.omdbapi.com/apikey.aspx and request a FREE API Key)
+(To obtain a free API key, you will need to visit https://www.omdbapi.com/apikey.aspx and make a request.)
 
 Receive by querystring a parameter called director
 
-Make a call to the movie api  and return a list of movies of that director using axios
+Make a call to the movie API  and return a list of movies by that director using axios
 
 Return the full list of movies
 
 - **/parseurl**:
 
-Retrieves a parameter from querystring called someurl
+Retrieves a parameter from the querystring called someurl
 
 Parse the url and return the protocol, host, port, path, querystring and hash
 
@@ -105,7 +101,7 @@ Return the parsed host
 
 Get the current directory
 
-Get the list of files in the current directory
+Get a list of files in the current directory
 
 Return the list of files
 
@@ -115,7 +111,7 @@ Return the memory consumption of the process in GB, rounded to 2 decimals
 
 - **/randomeuropeancountry**:
 
-Make an array of european countries and its iso codes
+Make an array of European countries and their ISO codes
 
 Return a random country from the array
 
@@ -134,15 +130,15 @@ docker run -d -p 8080:80 --name dotnetapp dotnetapp
 
 # GitHub Copilot Labs exercises
 
-The following tasks can be performed using the Copilot labs add-in, currently PREVIEW functionality, expect some bugs.
+The following tasks can be performed using the Copilot Labs add-in, currently with preview functionality: Expect some bugs.
 
-Make sure to install the GitHub Copilot labs extension: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs
+Make sure to install the GitHub Copilot Labs extension: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-labs
 
 Open GitHub Copilot extension to see all the available functionality.
 
 - **Explain**
 
-Select the line that has the regex in the validatePhoneNumber method, in EXPLAIN section click "Ask Copilot". You will see an explanation detailing what does each different notations in the regular expression.
+Select the line that has the regex in the validatePhoneNumber method, and in the EXPLAIN section, click "Ask Copilot". You will see an explanation detailing what each different notation does in the regular expression.
 
 - **Language translation**
 
@@ -153,13 +149,13 @@ var countries = new[] { "Spain", "France", "Germany", "Italy", "Portugal", "Swed
     return countries[new Random().Next(0, countries.Length)];
 ```
 
-Then use the "LANGUAGE TRANSLATION" section select python and click "Ask Copilot" button, you should see new code in python.
+Then use the "LANGUAGE TRANSLATION" section, select Python, and click the "Ask Copilot" button. You should see new code in Python.
 
 - **Readable**
 
 Select the content of MakeZipFile
 
-In the BRUSHES section, click in "Readable", see how comments are added and also variables that have short names are renamed to a more understandable name.
+In the BRUSHES section, click on "Readable", See how comments are added and how variables that have short names are renamed to a more understandable name.
 
 
 -- **Add Types**
@@ -168,15 +164,15 @@ TBD
 
 -- **Fix Bug**
 
-In the exercise, there should be no bugs, since most of the code will be done by CoPilot. We can force some errors and then test the debug functionality.
+In the exercise, there should be no bugs since most of the code will be done by Copilot. We can force some errors and then test the debug functionality.
 
 Force some errors like:
 
-``` csharp	
+``` csharp  
 return countries[countries.Length + 1];
 ```
 
-Then select the "BRUSHES" section press the "Fix Bug" button.
+Then select the "BRUSHES" section and press the "Fix Bug" button.
 
 -- **Debug**
 
@@ -190,7 +186,7 @@ app.MapGet("/listfiles", () =>
 });
 ```
 
-THen use the "BRUSHES" section and press the "Debug" button.
+Then use the "BRUSHES" section and press the "Debug" button.
 
 -- **Clean**
 
@@ -198,12 +194,12 @@ TBD
 
 -- **List steps**
 
-Select some lines of code that do not have comments and in the "BRUSHES" section press the "List steps" button.
+Select some lines of code that do not have comments, and in the "BRUSHES" section, press the "List steps" button.
 
 
 -- **Make robust**
 
-Select some code where you would like to add validation and using the "BRUSHES" section press the "Make robust" button, you will see that additional validation is added.
+Select some code where you would like to add validation, and using the "BRUSHES" section, press the "Make robust" button. You will see that additional validation has been added.
 
 -- **Chunk**
 
@@ -211,11 +207,11 @@ TBD
 
 -- **Document**
 
-Select some line (e.g. a method or the beggining of the if clause)
+Select some line (e.g., a method or the beginning of the if-clause)
 
     `app.MapGet("/parseurl", (string url) =>`
 
-Then use the "BRUSHES" section and press the "Document" button, you will see that comments explaining what the code does are added before the line.
+Then use the "BRUSHES" section and press the "Document" button. You will see that comments explaining what the code does are added before the line.
 
 -- **Test Generation**
 
