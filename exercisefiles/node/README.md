@@ -162,11 +162,6 @@ Select the content of MakeZipFile
 
 In the BRUSHES section, click on "Readable", see how comments are added and how variables that have short names are renamed to a more understandable name.
 
-
--- **Add Types**
-
-TBD
-
 -- **Fix Bug**
 
 In the exercise, there should be no bugs since most of the code will be done by Copilot. We can force some errors and then test the debug functionality.
@@ -189,12 +184,6 @@ Select some lines of text that contain variables, like:
 
 select the text, and in the "BRUSHES" section, press the "Debug" button.
 
-
--- **Clean**
-
-TBD
-
-
 -- **List steps**
 
 Select some lines of code that do not have comments and in the  "BRUSHES" section press the "List steps" button.
@@ -210,10 +199,6 @@ Select some text that comes from input, for example variables that come from que
 
 In the  "BRUSHES" section press the "Make robust" button, you will see that additional validation is added.
 
--- **Chunk**
-
-TBD
-
 -- **Document**
 
 Select some line (e.g. a method or the beggining of the if clause)
@@ -221,8 +206,3 @@ Select some line (e.g. a method or the beggining of the if clause)
     else if (req.url.startsWith('/GetFullTextFile')) 
 
 In the  "BRUSHES" section press the "Document" button, you will see that comments explaining what the code does are added before the line.
-
-
--- **Test Generation**
-
-TBD

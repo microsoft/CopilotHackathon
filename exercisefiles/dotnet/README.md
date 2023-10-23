@@ -157,11 +157,6 @@ Select the content of MakeZipFile
 
 In the BRUSHES section, click on "Readable", See how comments are added and how variables that have short names are renamed to a more understandable name.
 
-
--- **Add Types**
-
-TBD
-
 -- **Fix Bug**
 
 In the exercise, there should be no bugs since most of the code will be done by Copilot. We can force some errors and then test the debug functionality.
@@ -188,10 +183,6 @@ app.MapGet("/listfiles", () =>
 
 Then use the "BRUSHES" section and press the "Debug" button.
 
--- **Clean**
-
-TBD
-
 -- **List steps**
 
 Select some lines of code that do not have comments, and in the "BRUSHES" section, press the "List steps" button.
@@ -201,10 +192,6 @@ Select some lines of code that do not have comments, and in the "BRUSHES" sectio
 
 Select some code where you would like to add validation, and using the "BRUSHES" section, press the "Make robust" button. You will see that additional validation has been added.
 
--- **Chunk**
-
-TBD
-
 -- **Document**
 
 Select some line (e.g., a method or the beginning of the if-clause)
@@ -212,7 +199,3 @@ Select some line (e.g., a method or the beginning of the if-clause)
     `app.MapGet("/parseurl", (string url) =>`
 
 Then use the "BRUSHES" section and press the "Document" button. You will see that comments explaining what the code does are added before the line.
-
--- **Test Generation**
-
-TBD
