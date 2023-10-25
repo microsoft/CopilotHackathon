@@ -1,7 +1,7 @@
 # create dotnet 7 image for the current project
 
 # Use the official .NET 7 SDK image as the base image
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS build
 
 # Set the working directory to /app
 WORKDIR /app
@@ -25,4 +25,4 @@ WORKDIR /app
 COPY --from=build /app/out ./
 
 # Set the entry point to the application
-ENTRYPOINT ["dotnet", "MinimalAPI.dll"]
+ENTRYPOINT ["dotnet", "/app/MinimalAPI.dll"]
