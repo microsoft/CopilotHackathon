@@ -47,13 +47,12 @@ Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration:
 
 - **/DaysBetweenDates**: 
 
-Calculate days between two dates
-
-receive by query string 2 parameters date1 and date2, and calculate the days between those two dates.
+* calculate days between two dates
+* receive by query string two parameters `date1` and `date2`, and calculate the days between those two dates.
 
 - **/validatephonenumber**: 
 
-* eceive by querystring a parameter called phoneNumber 
+* receive by querystring a parameter called phoneNumber
 * validate phoneNumber with Spanish format, for example `+34666777888`
 * if phoneNumber is valid return true
 
@@ -186,7 +185,7 @@ app.MapGet("/listfiles", () =>
 });
 ```
 
-THen use the "BRUSHES" section and press the "Debug" button.
+Then use the "BRUSHES" section and press the "Debug" button.
 
 -- **Clean**
 
@@ -207,7 +206,7 @@ TBD
 
 -- **Document**
 
-Select some line (e.g. a method or the beggining of the if clause)
+Select some line (e.g. a method or the beginning of the if clause)
 
     `app.MapGet("/parseurl", (string url) =>`
 
