@@ -1,17 +1,18 @@
 # COVID19 Worldwide Testing Data
 
-## Introduction
-This dataset tested_worldwide.csv is origin from Kaggle. This dataset, which has the number of tests conducted over time, is important to help making sense of daily reported cases and understanding how COVID-19 is truly spreading in each country.
+## INTRODUCTION
+        This dataset tested_worldwide.csv is origin from Kaggle. This dataset, which has the number of tests conducted over time, is important to help making sense of daily reported cases and understanding how COVID-19 is truly spreading in each country.
 
-## Instructions
+## INSTURCTIONS
 
-1. Use Copilot Chat to create a new notebook in your project. Use command /newnotebook and name it as "COVID19 Worldwide Testing Data".
+        1. Use Copilot Chat to create a new notebook in your project. Use command /newnotebook and name it as "COVID19 Worldwide Testing Data".
+        2. Use Copilot and Copilot Chat to develop the exercise and support your learning.
 
-## Exercise
+## EXERCISE
 
-Our analysis tries to provide an answer to this question: **Which countries have reported the highest number of positive cases in relation to the number of tests conducted?**
+        Our analysis tries to provide an answer to this question: **Which countries have reported the highest number of positive cases in relation to the number of tests conducted?**
 
-1. Understanding the Data 
+### 1. Understanding the Data 
     
         1.1. Import the dataset and display the first 5 rows of the dataframe. 
     
@@ -23,7 +24,7 @@ Our analysis tries to provide an answer to this question: **Which countries have
     
         1.5. Display the number of unique values in each column.
 
-2. Data Cleaning
+### 2. Data Cleaning
         
         2.1. Drop the columns that are not needed for the analysis. 
     
@@ -35,7 +36,7 @@ Our analysis tries to provide an answer to this question: **Which countries have
     
         2.5. Display the number of missing values in each column.
 
-3. Extracting the Top Ten Countries with Most Covid-19 Cases.
+### 3. Extracting the Top Ten Countries with Most Covid-19 Cases.
 
         3.1. Create a new dataframe that contains the total number of positive cases for each country. 
     
@@ -43,7 +44,7 @@ Our analysis tries to provide an answer to this question: **Which countries have
     
         3.3. Display the top ten countries with the most positive cases.
 
-4. Identifying the Highest Positive Against Tested Cases
+### 4. Identifying the Highest Positive Against Tested Cases
             
         4.1. Create a new dataframe that contains the total number of tests conducted for each country. 
     
@@ -51,7 +52,7 @@ Our analysis tries to provide an answer to this question: **Which countries have
     
         4.3. Display the top ten countries with the most tests conducted.
 
-5. Identifying top three countries that have had the highest number of positive cases against the number of tests carried out
+### 5. Identifying top three countries that have had the highest number of positive cases against the number of tests carried out
             
         5.1. Merge the two dataframes created in the previous steps. 
     
@@ -60,15 +61,16 @@ Our analysis tries to provide an answer to this question: **Which countries have
         5.3. Sort the dataframe in descending order of the ratio of positive cases to the number of tests conducted. 
     
         5.4. Display the top three countries with the highest ratio of positive cases to the number of tests conducted.
-6. Displaying the Results
+
+### 6. Displaying the Results
 
         6.1. Display the results a chart that shows the top three countries with the highest ratio of positive cases to the number of tests conducted.
 
         6.2. Display the results in a chart that shows the top ten countries with the most positive cases vs deaths.
-        
+
         6.3. Display the results in a chart that shows the top ten countries with the most tests conducted.
 
-7. Conclusion
+### 7. Conclusion
 
         6.1. What are your conclusions? 
     
