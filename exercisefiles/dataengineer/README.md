@@ -1,9 +1,10 @@
 # COVID19 Worldwide Testing Data
 
 ## INTRODUCTION
+
         This dataset tested_worldwide.csv is origin from Kaggle. This dataset, which has the number of tests conducted over time, is important to help making sense of daily reported cases and understanding how COVID-19 is truly spreading in each country.
 
-## INSTURCTIONS
+## INSTRUCTIONS
 
         1. Use Copilot Chat to create a new notebook in your project. Use command /newnotebook and name it as "COVID19 Worldwide Testing Data".
         2. Use Copilot and Copilot Chat to develop the exercise and support your learning.
@@ -66,14 +67,14 @@
 
         6.1. Display the results a chart that shows the top three countries with the highest ratio of positive cases to the number of tests conducted.
 
-        6.2. Display the results in a chart that shows the top ten countries with the most positive cases vs deaths.
+        6.2. Display the results in a chart that shows the top ten countries with the most positive cases.
 
         6.3. Display the results in a chart that shows the top ten countries with the most tests conducted.
 
 ### 7. Conclusion
 
-        6.1. What are your conclusions? 
+        7.1. What are your conclusions? 
     
-        6.2. What are the limitations of this analysis? 
+        7.2. What are the limitations of this analysis? 
     
-        6.3. What are the next steps you would take to improve this analysis?
+        7.3. What are the next steps you would take to improve this analysis?
