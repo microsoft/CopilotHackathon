@@ -1,0 +1,54 @@
+[{
+    "title": "American History X",
+    "description": "A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.",
+    "programType": "movies",
+    "images": {
+      "posterArt": {
+        "url": "https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/assets/american_history_x.jpg",
+        "width": 497,
+        "height": 736
+      }
+    },
+    "releaseYear": 1998
+  },
+  {
+    "title": "The Matrix",
+    "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "programType": "movies",
+    "images": {
+      "posterArt": {
+        "url": "https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/assets/the_matrix.jpg",
+        "width": 500,
+        "height": 750
+      }
+    },
+    "releaseYear": 1999
+    },
+    {
+    "title": "The Matrix Reloaded",
+    "description": "Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.",
+    "programType": "movies",
+    "images": {
+      "posterArt": {
+        "url": "https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/assets/the_matrix_reloaded.jpg",
+        "width": 500,
+        "height": 750
+      }
+    },
+    "releaseYear": 2003
+    },
+    {
+    "title": "The Matrix Revolutions",
+    "description": "The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",
+    "programType": "movies",
+    "images": {
+      "posterArt": {
+        "url": "https://static.rviewer.io/challenges/datasets/dreadful-tomatoes/assets/the_matrix_revolutions.jpg",
+        "width": 500,
+        "height": 750
+      }
+    },
+    "releaseYear": 2003
+    },
+    
+]
