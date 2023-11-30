@@ -22,9 +22,9 @@ Remember:
 
 - As you type GitHub Copilot will make suggestions, you can accept them by pressing Tab.
 - If nothing shows up after Copilot write some lines, press enter and wait a couple of seconds.
-- Press Ctrl + Enter, to see more suggestions.
+- Press **Ctrl + Enter**, to see more suggestions.
 - Use Copilot chat to support your learning and development.
-- Press Ctrl + i to start Copilot chat inline within your code. 
+- Press **Ctrl + i** to start Copilot chat inline within your code. 
 
 ## Pre-requisites
 
