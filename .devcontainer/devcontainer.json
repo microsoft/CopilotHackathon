@@ -27,7 +27,6 @@
 		"vscode": {
 			"extensions": [
 				"GitHub.copilot",
-				"GitHub.copilot-labs",
 				"GitHub.copilot-chat",
 				"redhat.vscode-yaml",
 				"GitHub.vscode-github-actions",
