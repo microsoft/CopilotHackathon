@@ -82,12 +82,12 @@ Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Cop
 
 - **/tellmeajoke**:
 
-    * Make a call to the joke api and return a random joke using axios
+    * Make a call to the joke api and return a random joke
         
 - **/moviesbydirector**:
 
     * Receive by querystring a parameter called director
-    * Make a call to the movie api  and return a list of movies of that director using axios
+    * Make a call to the movie api and return a list of movies of that director
     * Return the full list of movies
 
 > **_NOTE:_** This will require to browse to https://www.omdbapi.com/apikey.aspx and request a FREE API Key
