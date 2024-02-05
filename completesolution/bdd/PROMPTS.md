@@ -415,7 +415,7 @@ Feature: CRUD Functionality
 
   Scenario: Create a new author
     Given author <name> with ID <id> and email <email>
-    When do a POST request to /authors
+    When do a POST request to "/authors"
     Then return HTTP status code <statusCode>
 
     Examples:
