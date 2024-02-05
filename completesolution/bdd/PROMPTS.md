@@ -406,7 +406,7 @@ Scenario: Delete an existing author
 
 ### RESULT
 
-NO CHANGES (¿?¿?¿?)
+`NO CHANGES (¿?¿?¿?)`
 
 ### HUMAN RESULT
 
