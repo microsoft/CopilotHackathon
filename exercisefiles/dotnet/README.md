@@ -84,8 +84,11 @@ Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Cop
 
     * Make a call to the joke api and return a random joke
 
-> **_NOTE:_** Here's example where you need to use you own knowledge and judgement
-to validate that Copilot follows best practices. Just because Copilot might mimic what many developers do, doesn't always mean it's the correct way. You might be extra specific in your prompt to let Copilot know what's best practices. _Hint: Pay attention to HttpClient._
+> **_NOTE:_** Here's example where you might need to use you own knowledge and judgement
+to validate that Copilot follows best practices. Just because Copilot mimic 
+what many developers do, doesn't always mean it's the correct way. You might need 
+to be extra specific in your prompt to let Copilot know what's best practices. 
+_Hint: Pay attention to HttpClient._
         
 - **/moviesbydirector**:
 
