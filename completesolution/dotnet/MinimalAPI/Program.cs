@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Register a HttpClient so IHttpClientFactory can be used to create HttpClient instances.
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,23 +49,27 @@ app.MapGet("/color", (string color) =>
     return colors.First(c => c.Name == color).Code.HEX;
 });
 
-
-// tellmeajoke endpoint. Calls jokeapi and returns a sinlgle joke. Deserialize to dynamic.
-app.MapGet("/tellmeajoke", async () =>
+// tellmeajoke endpoint. Calls jokeapi and returns a sinlgle joke. 
+// Deserialize to dynamic.
+// Make sure to use IHttpClientFactory to create the HttpClient instance.
+app.MapGet("/tellmeajoke", async (IHttpClientFactory httpClientFactory) =>
 {
-    var client = new HttpClient();
+    var client = httpClientFactory.CreateClient();
     var response = await client.GetAsync("https://v2.jokeapi.dev/joke/Any");
-    var joke = JsonSerializer.Deserialize<dynamic>(await response.Content.ReadAsStringAsync());
-    return joke;
+    var content = await response.Content.ReadAsStringAsync();
+    return JsonSerializer.Deserialize<dynamic>(content);
 });
 
-// moviesbydirector endpoint. Calls omdbapi with an apikey specified in code and returns a list of movies for the director specified in the query string. Deserialize to dynamic.
-app.MapGet("/moviesbydirector", async (string director) =>
+// moviesbydirector endpoint. 
+// Calls omdbapi with an apikey specified in code and returns a list of movies 
+// for the director specified in the query string. Deserialize to dynamic. 
+// Make sure to use IHttpClientFactory to create the HttpClient instance.
+app.MapGet("/moviesbydirector", async (string director, IHttpClientFactory httpClientFactory) =>
 {
-    var client = new HttpClient();
-    var apiKey = "YOUR_API_KEY_HERE"; // REPLACE WITH YOUR OMDB API KEY
-    var response = await client.GetAsync($"http://www.omdbapi.com/?apikey={apiKey}&s={director}");
-    return await response.Content.ReadAsStringAsync();
+    var client = httpClientFactory.CreateClient();
+    var response = await client.GetAsync($"http://www.omdbapi.com/?apikey=4e3b711b&r=json&s={director}");
+    var content = await response.Content.ReadAsStringAsync();
+    return JsonSerializer.Deserialize<dynamic>(content);
 });
 
 // parseurl endpoint. Reads url from the query string and returns the protocol, host and path in a json object. Implement inline.
