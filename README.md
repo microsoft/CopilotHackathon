@@ -1,4 +1,4 @@
-# GitHub Copilot Hackaton
+# GitHub Copilot Hackathon
 
 Demo project for running labs to evaluate Copilot viability
 
@@ -10,7 +10,7 @@ Demo project for running labs to evaluate Copilot viability
 
 ## Goal
 
-The goal of a GitHub Copilot Hackaton is to learn how to use it, using a set of [exercises (labs)](#labs-instructions) that consist of building a web server using Nodejs with different functionalities, a .NET Web API or a Java Rest API (either Spring Boot or Quarkus).
+The goal of a GitHub Copilot Hackathon is to learn how to use it, using a set of [exercises (labs)](#labs-instructions) that consist of building a web server using Nodejs with different functionalities, a .NET Web API or a Java Rest API (either Spring Boot or Quarkus).
 
 We have also set two exercises for data engineers and data scientists based on python.
 
