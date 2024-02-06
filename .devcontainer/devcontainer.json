@@ -3,7 +3,7 @@
 {
 	"name": "GitHub Copilot Hackathon",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {
 			"nodeGypDependencies": true,
@@ -20,7 +20,7 @@
 			"installMaven": true
 		},
 		"ghcr.io/devcontainers/features/python:1": {
-			"version": "3"
+			"version": "3.8"
 		}
 	},
 	"customizations": {
