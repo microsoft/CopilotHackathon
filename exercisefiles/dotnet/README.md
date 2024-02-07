@@ -120,15 +120,23 @@ Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Cop
 
 ### Exercise 3: Document the code
 
-Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the Program.cs file. 
+Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the Program.cs file.
 
-### Exercise 4: Building tests
+- **Using GitHub Copilot Chat for generate internal documentation**: To generate documentation for your code, simply select the desired code block (or all the code in the file), navigate to the GitHub Copilot chat, and type "generate internal documentation for the selected code".
+
+### Exercise 4: Obtain an Explanation of the Code
+
+- **General Code Explanations Using Commands**: If you need a detailed explanation of a specific block of code or an entire file, you can select the code in question and then execute the commands "@workspace /explain" or "/doc" in the GitHub Copilot chat.
+
+- **Code Explanation Without Using Copilot Commands**: Additionally, you can obtain an explanation of your code without specific GitHub Copilot commands. Just highlight the code you're interested in and enter into the GitHub Copilot chat, "Explain the selected code".
+
+### Exercise 5: Building tests
 
 We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
 
 You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
 
-### Exercise 5: Create a Dockerfile
+### Exercise 6: Create a Dockerfile
 
 Now that we have the new functionality added and tests covering it, lets create a Dockerfile for the Minimal API project. 
 
