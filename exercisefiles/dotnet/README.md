@@ -21,13 +21,19 @@ dotnet test
 
 To run the app, open a terminal in the `dotnet` folder and run:
 
+**Windows**
 ``` bash
 dotnet run --project .\MinimalAPI\MinimalAPI.csproj
 ```
 
+**Codespaces and other non-Windows environments**
+``` bash
+dotnet run --project ./MinimalAPI/MinimalAPI.csproj
+```
+
 ### Exercise 1: Introduction
 
-- Inside `MinimalAPI\Program.cs` add a new Hello World endpoint at `/` that returns a `Hello World!` string. You can test the Copilot inline feature by pressing `ctrl + i`. Then write in the text box the desired behaviour. 
+- Inside `MinimalAPI\Program.cs` add a new Hello World endpoint at `/` that returns a `Hello World!` string. You can test the Copilot inline feature by pressing `ctrl + i`. Then write in the text box the desired behavior. 
 - Run `dotnet test`
 - If test pass you should see something like this:
 
@@ -41,7 +47,7 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: < 1 ms - MinimalAPI.Tests.dll
 ```
 
-### Exercise 2: Building new functionlities
+### Exercise 2: Building new functionalities
 
 
 Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Copilot:
