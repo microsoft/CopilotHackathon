@@ -21,8 +21,14 @@ dotnet test
 
 To run the app, open a terminal in the `dotnet` folder and run:
 
+**Windows environments**
 ``` bash
 dotnet run --project .\MinimalAPI\MinimalAPI.csproj
+```
+
+**Codespaces, Linux & Unix environments**
+``` bash
+dotnet run --project ./MinimalAPI/MinimalAPI.csproj
 ```
 
 ### Exercise 1: Introduction
@@ -41,7 +47,7 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: < 1 ms - MinimalAPI.Tests.dll
 ```
 
-### Exercise 2: Building new functionlities
+### Exercise 2: Building new functionalities
 
 
 Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Copilot:
