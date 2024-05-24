@@ -8,13 +8,13 @@
 
 ### 1. Choose a programming language of your choice.
 
-### 2. Topic selected is beer. You can use the json beers.json in the root of the project to get the list of beers for building the Rest API.
+### 2. Topic selected is beer. You can use the beers.json file in the root of the eshop project to get the list of beers for building the Rest API.
 
 ###  3. Develop the shop cart. You can use the following steps as a guide:
 
-        - Create an API Rest with methods to:
-            - get the beers list with page offset and limit.
-            - get beer details by id. 
+        - Create a Rest API with methods to:
+            - Get the beers list with page offset and limit.
+            - Get beer details by id. 
             - Search beers by name, description, tagline, food_pairing, price.
         - Create a list of products in the main page.
         - Create a search bar to filter the products.
