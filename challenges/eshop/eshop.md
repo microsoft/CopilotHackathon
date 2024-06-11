@@ -8,7 +8,7 @@
 
 ### 1. Choose a programming language of your choice.
 
-### 2. Topic selected is automobile parts. You can use the automobiles.json file in the root of the eshop project to get the list of automobile parts for building the Rest API.
+### 2. Topic selected is automobile parts. You can use the automobileParts.json file in the root of the eshop project to get the list of automobile parts for building the Rest API.
 
 ###  3. Develop the shop cart. You can use the following steps as a guide:
 
