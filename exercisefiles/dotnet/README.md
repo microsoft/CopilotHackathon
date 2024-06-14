@@ -96,7 +96,7 @@ what many developers do, doesn't always mean it's the correct way. You might nee
 to be extra specific in your prompt to let Copilot know what's best practices. 
 _Hint: Pay attention to HttpClient._
         
-- **/moviesbydirector**:
+- **/moviesbytitle**:
 
     * Receive by querystring a parameter called director
     * Make a call to the movie api and return a list of movies of that director
