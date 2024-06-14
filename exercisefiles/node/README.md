@@ -94,7 +94,7 @@ The requests that the server must attend are the following:
   * Make a call to the joke api and return a random joke using axios (https://official-joke-api.appspot.com/random_joke)
         
 
-- **/MoviesByDirector**:
+- **/MoviesByTitle**:
 
   * Receive by querystring a parameter called director
   * Make a call to the movie api  and return a list of movies of that director using axios
