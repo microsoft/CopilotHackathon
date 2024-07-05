@@ -43,13 +43,25 @@ Here are some useful shortcut commands for using GitHub Copilot:
 
 ### "@" Commands
 
+- Type `@workspace` in the chat to run queries on/about workspace.
+
+- Type `@github` in the chat to run queries on/about GitHub.
+
 - Type `@terminal` in the chat to handle/run queries on/about terminal output(s)/error(s).
 
 - Type `@vscode` in the chat to handle/run queries on/about VSCode output(s)/error(s).
 
-- Type `@workspace` in the chat to run queries on/about workspace.
+- Type `@docker` in the chat to handle/run queries on/about Docker output(s)/error(s).
+
+- Type `@copilotext-dev` in the chat to handle/run queries on/about Copilot extension. It also helps in developing your own extension(s). 
+
+- Type `@teamsagent` this is an agent that help developer to develop an teams app.
 
 ### "#" Commands
+
+- Type `#kb` in the chat to run queries on your knowledge base(s).
+
+- Type `#web` in the chat to run queries on/about web output(s)/error(s).
 
 - Type `#editor` in the chat to handle/run queries on/about editor output(s)/error(s).
 
@@ -60,6 +72,8 @@ Here are some useful shortcut commands for using GitHub Copilot:
 - Type `#TerminalLastCommand` in the chat to handle/run queries on/about the last command in the terminal.
 
 - Type `#TerminlSelection` in the chat to handle/run queries on/about selected terminal output(s)/error(s).
+
+- Type `#vscodeApi` in the chat to handle/run queries on/about VSCode API output(s)/error(s).
 
 ## In-Line Chat Shortcuts
 

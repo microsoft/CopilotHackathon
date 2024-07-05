@@ -1,0 +1,323 @@
+[
+  {
+      "id": 1,
+      "name": "Brake Pad Set",
+      "description": "High quality brake pad set.",
+      "image_url": "https://example.com/images/brake_pad_set.png",
+      "price": 45.99,
+      "manufacturer": "Brembo",
+      "model_compatibility": ["Model A", "Model B", "Model C"],
+      "part_number": "BP123",
+      "stock": 20,
+      "specifications": {
+          "weight": "1.2kg",
+          "dimensions": "15x10x2cm",
+          "material": "Ceramic"
+      }
+  },
+  {
+      "id": 2,
+      "name": "Oil Filter",
+      "description": "Durable oil filter.",
+      "image_url": "https://example.com/images/oil_filter.png",
+      "price": 10.99,
+      "manufacturer": "Bosch",
+      "model_compatibility": ["Model D", "Model E", "Model F"],
+      "part_number": "OF456",
+      "stock": 50,
+      "specifications": {
+          "weight": "0.3kg",
+          "dimensions": "7x7x9cm",
+          "material": "Synthetic"
+      }
+  },
+  {
+      "id": 3,
+      "name": "Spark Plug",
+      "description": "High performance spark plug.",
+      "image_url": "https://example.com/images/spark_plug.png",
+      "price": 5.99,
+      "manufacturer": "NGK",
+      "model_compatibility": ["Model G", "Model H", "Model I"],
+      "part_number": "SP789",
+      "stock": 100,
+      "specifications": {
+          "weight": "0.1kg",
+          "dimensions": "2x2x8cm",
+          "material": "Ceramic"
+      }
+  },
+  {
+      "id": 4,
+      "name": "Air Filter",
+      "description": "Efficient air filter.",
+      "image_url": "https://example.com/images/air_filter.png",
+      "price": 15.99,
+      "manufacturer": "K&N",
+      "model_compatibility": ["Model J", "Model K", "Model L"],
+      "part_number": "AF012",
+      "stock": 30,
+      "specifications": {
+          "weight": "0.4kg",
+          "dimensions": "30x30x5cm",
+          "material": "Synthetic"
+      }
+  },
+  {
+      "id": 5,
+      "name": "Alternator",
+      "description": "Reliable alternator.",
+      "image_url": "https://example.com/images/alternator.png",
+      "price": 120.99,
+      "manufacturer": "Bosch",
+      "model_compatibility": ["Model M", "Model N", "Model O"],
+      "part_number": "AL345",
+      "stock": 10,
+      "specifications": {
+          "weight": "5.0kg",
+          "dimensions": "20x15x10cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 6,
+      "name": "Battery",
+      "description": "Long-lasting car battery.",
+      "image_url": "https://example.com/images/battery.png",
+      "price": 80.99,
+      "manufacturer": "Exide",
+      "model_compatibility": ["Model P", "Model Q", "Model R"],
+      "part_number": "BT678",
+      "stock": 15,
+      "specifications": {
+          "weight": "12.0kg",
+          "dimensions": "30x20x15cm",
+          "material": "Lead Acid"
+      }
+  },
+  {
+      "id": 7,
+      "name": "Radiator",
+      "description": "Efficient car radiator.",
+      "image_url": "https://example.com/images/radiator.png",
+      "price": 90.99,
+      "manufacturer": "Denso",
+      "model_compatibility": ["Model S", "Model T", "Model U"],
+      "part_number": "RD910",
+      "stock": 8,
+      "specifications": {
+          "weight": "3.0kg",
+          "dimensions": "60x40x5cm",
+          "material": "Aluminium"
+      }
+  },
+  {
+      "id": 8,
+      "name": "Fuel Pump",
+      "description": "High quality fuel pump.",
+      "image_url": "https://example.com/images/fuel_pump.png",
+      "price": 70.99,
+      "manufacturer": "Delphi",
+      "model_compatibility": ["Model V", "Model W", "Model X"],
+      "part_number": "FP112",
+      "stock": 12,
+      "specifications": {
+          "weight": "1.0kg",
+          "dimensions": "10x10x10cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 9,
+      "name": "Water Pump",
+      "description": "Durable water pump.",
+      "image_url": "https://example.com/images/water_pump.png",
+      "price": 60.99,
+      "manufacturer": "Gates",
+      "model_compatibility": ["Model Y", "Model Z"],
+      "part_number": "WP234",
+      "stock": 18,
+      "specifications": {
+          "weight": "2.0kg",
+          "dimensions": "15x15x10cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 10,
+      "name": "Timing Belt",
+      "description": "High performance timing belt.",
+      "image_url": "https://example.com/images/timing_belt.png",
+      "price": 25.99,
+      "manufacturer": "ContiTech",
+      "model_compatibility": ["Model A", "Model B", "Model C"],
+      "part_number": "TB567",
+      "stock": 25,
+      "specifications": {
+          "weight": "0.5kg",
+          "dimensions": "100x2x1cm",
+          "material": "Rubber"
+      }
+  },
+  
+  {
+      "id": 11,
+      "name": "Transmission Fluid",
+      "description": "High quality transmission fluid.",
+      "image_url": "https://example.com/images/transmission_fluid.png",
+      "price": 20.99,
+      "manufacturer": "Castrol",
+      "model_compatibility": ["Model D", "Model E", "Model F"],
+      "part_number": "TF891",
+      "stock": 30,
+      "specifications": {
+          "weight": "1.0kg",
+          "dimensions": "10x5x20cm",
+          "material": "Liquid"
+      }
+  },
+  {
+      "id": 12,
+      "name": "Engine Oil",
+      "description": "High performance engine oil.",
+      "image_url": "https://example.com/images/engine_oil.png",
+      "price": 30.99,
+      "manufacturer": "Mobil 1",
+      "model_compatibility": ["Model G", "Model H", "Model I"],
+      "part_number": "EO902",
+      "stock": 40,
+      "specifications": {
+          "weight": "1.0kg",
+          "dimensions": "10x5x20cm",
+          "material": "Liquid"
+      }
+  },
+  {
+      "id": 13,
+      "name": "Coolant",
+      "description": "Long-lasting coolant.",
+      "image_url": "https://example.com/images/coolant.png",
+      "price": 15.99,
+      "manufacturer": "Prestone",
+      "model_compatibility": ["Model J", "Model K", "Model L"],
+      "part_number": "CL013",
+      "stock": 50,
+      "specifications": {
+          "weight": "1.0kg",
+          "dimensions": "10x5x20cm",
+          "material": "Liquid"
+      }
+  },
+  {
+      "id": 14,
+      "name": "Fuel Filter",
+      "description": "Efficient fuel filter.",
+      "image_url": "https://example.com/images/fuel_filter.png",
+      "price": 10.99,
+      "manufacturer": "Bosch",
+      "model_compatibility": ["Model M", "Model N", "Model O"],
+      "part_number": "FF014",
+      "stock": 60,
+      "specifications": {
+          "weight": "0.2kg",
+          "dimensions": "5x5x5cm",
+          "material": "Synthetic"
+      }
+  },
+  {
+      "id": 15,
+      "name": "Air Conditioning Compressor",
+      "description": "Reliable air conditioning compressor.",
+      "image_url": "https://example.com/images/ac_compressor.png",
+      "price": 200.99,
+      "manufacturer": "Denso",
+      "model_compatibility": ["Model P", "Model Q", "Model R"],
+      "part_number": "AC015",
+      "stock": 10,
+      "specifications": {
+          "weight": "5.0kg",
+          "dimensions": "25x15x20cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 16,
+      "name": "Power Steering Pump",
+      "description": "High performance power steering pump.",
+      "image_url": "https://example.com/images/ps_pump.png",
+      "price": 150.99,
+      "manufacturer": "A1 Cardone",
+      "model_compatibility": ["Model S", "Model T", "Model U"],
+      "part_number": "PS016",
+      "stock": 15,
+      "specifications": {
+          "weight": "3.0kg",
+          "dimensions": "20x15x15cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 17,
+      "name": "Shock Absorber",
+      "description": "Durable shock absorber.",
+      "image_url": "https://example.com/images/shock_absorber.png",
+      "price": 75.99,
+      "manufacturer": "Bilstein",
+      "model_compatibility": ["Model V", "Model W", "Model X"],
+      "part_number": "SA017",
+      "stock": 20,
+      "specifications": {
+          "weight": "2.0kg",
+          "dimensions": "50x5x5cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 18,
+      "name": "Brake Rotor",
+      "description": "High quality brake rotor.",
+      "image_url": "https://example.com/images/brake_rotor.png",
+      "price": 45.99,
+      "manufacturer": "Brembo",
+      "model_compatibility": ["Model Y", "Model Z"],
+      "part_number": "BR018",
+      "stock": 25,
+      "specifications": {
+          "weight": "5.0kg",
+          "dimensions": "30x30x5cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 19,
+      "name": "Brake Caliper",
+      "description": "Reliable brake caliper.",
+      "image_url": "https://example.com/images/brake_caliper.png",
+      "price": 80.99,
+      "manufacturer": "A1 Cardone",
+      "model_compatibility": ["Model A", "Model B", "Model C"],
+      "part_number": "BC019",
+      "stock": 15,
+      "specifications": {
+          "weight": "3.0kg",
+          "dimensions": "20x15x10cm",
+          "material": "Metal"
+      }
+  },
+  {
+      "id": 20,
+      "name": "Brake Master Cylinder",
+      "description": "High performance brake master cylinder.",
+      "image_url": "https://example.com/images/brake_master_cylinder.png",
+      "price": 100.99,
+      "manufacturer": "A1 Cardone",
+      "model_compatibility": ["Model D", "Model E", "Model F"],
+      "part_number": "BMC020",
+      "stock": 10,
+      "specifications": {
+          "weight": "2.0kg",
+          "dimensions": "20x10x10cm",
+          "material": "Metal"
+      }
+  }
+]
