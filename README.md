@@ -39,6 +39,15 @@ Environment is already configured to work with Github Codespaces, you can find t
 
 To start programming just start a new codespace and you are ready to go, don't need to install anything.
 
+### IDE Extensions
+
+Install the Copilot Extension for you IDE:
+
+- [Visual Studio Code Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=vscode)
+- [Visual Studio 2022 Copilot Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension?view=vs-2022)
+- [Visual Studio 2022 Copilot Chat Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022)
+- [JetBrains Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=jetbrains)
+
 ### Work locally
 
 **VisualStudio Code**
