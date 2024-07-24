@@ -46,7 +46,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RestController
 public class DemoController {
 
-    @GetMapping("/hello")
+    @GetMapping(value = "/hello", produces = MediaType.TEXT_PLAIN_VALUE)
     public String hello(@RequestParam(name = "key", required = false) String key) {
         if (key == null) {
             return "key not passed";
@@ -55,7 +55,7 @@ public class DemoController {
     }   
 
     // New operation under /diffdates that calculates the difference between two dates. The operation should receive two dates as parameter in format dd-MM-yyyy and return the difference in days. 
-    @GetMapping("/diffdates")
+    @GetMapping(value = "/diffdates", produces = MediaType.TEXT_PLAIN_VALUE)
     public String diffdates(@RequestParam(name = "date1", required = false) String date1, @RequestParam(name = "date2", required = false) String date2) throws ParseException {
         if (date1 == null || date2 == null) {
             return "date not passed";
@@ -69,7 +69,7 @@ public class DemoController {
     }
 
     // Validate the format of a spanish phone number (+34 prefix, then 9 digits, starting with 6, 7 or 9). The operation should receive a phone number as parameter and return true if the format is correct, false otherwise. 
-    @GetMapping("/validatephone")
+    @GetMapping(value = "/validatephone", produces = MediaType.TEXT_PLAIN_VALUE)
     public boolean validatephone(@RequestParam(name = "phone", required = false) String phone) {
         if (phone == null || phone.isEmpty()) {
             return false;
@@ -79,7 +79,7 @@ public class DemoController {
     }
 
     // Validate the format of a spanish DNI (8 digits and 1 letter). The operation should receive a DNI as parameter and return true if the format is correct, false otherwise. 
-    @GetMapping("/validatedni")
+    @GetMapping(value = "/validatedni", produces = MediaType.TEXT_PLAIN_VALUE)
     public boolean validatedni(@RequestParam(name = "dni", required = false) String dni) {
         if (dni == null || dni.isEmpty()) {
             return false;
@@ -89,7 +89,7 @@ public class DemoController {
     }
 
     //Based on existing colors.json file under resources, given the name of the color as path parameter, return the hexadecimal code. If the color is not found, return 404
-    @GetMapping("/color/{name}")
+    @GetMapping(value = "/color/{name}", produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> color(@PathVariable("name") String name) throws IOException {
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("colors.json");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -105,7 +105,7 @@ public class DemoController {
     }
     
     // new operation that call the API https://api.chucknorris.io/jokes/random and return the joke
-    @GetMapping("/joke")
+    @GetMapping(value = "/joke", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getJoke() {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.chucknorris.io/jokes/random";
@@ -123,7 +123,7 @@ public class DemoController {
 
 
     // Given a url as query parameter, parse it and return the protocol, host, port, path and query parameters. The response should be in Json format.
-    @GetMapping("/parseurl")
+    @GetMapping(value = "/parseurl", produces = MediaType.APPLICATION_JSON_VALUE)
     public String parseurl(@RequestParam(name = "url", required = false) String url) throws MalformedURLException {
         if (url == null || url.isEmpty()) {
             return "url not passed";
@@ -138,7 +138,7 @@ public class DemoController {
     }
 
     // List files and folders under a given path. The path should be a query parameter. The response should be in Json format.
-    @GetMapping("/list-files")
+    @GetMapping(value = "/list-files", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> listFiles(@RequestParam(name = "path") String pathString) {
         try {
             File path = new File(pathString);
@@ -163,7 +163,7 @@ public class DemoController {
     }
 
     // Given the path of a file and count the number of occurrence of a provided word. The path and the word should be query parameters. The response should be in Json format.
-    @GetMapping("/count-word")
+    @GetMapping(value = "/count-word", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> countWord(@RequestParam(name = "path") String pathString, @RequestParam(name = "word") String word) {
         try {
             File file = new File(pathString);
@@ -190,7 +190,7 @@ public class DemoController {
     }
 
     // Create a zip file with the content of a given folder. The path of the folder should be a query parameter.
-    @GetMapping("/zip-folder")
+    @GetMapping(value = "/zip-folder", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<Resource> zipFolder(@RequestParam(name = "path") String pathString) {
         try {
             File folder = new File(pathString);
