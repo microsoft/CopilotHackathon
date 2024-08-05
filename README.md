@@ -7,6 +7,7 @@ Demo project for running labs to evaluate Copilot viability
 - [Work with Github Codespaces](#work-with-github-codespaces)
 - [Work locally](#work-locally)
 - [Instructions](#instructions)
+- [Quick Links](#quick-links)
 
 ## Goal
 
@@ -34,9 +35,18 @@ If you still do not have an active Copilot license, a 30 day trial can be reques
 
 ### Work with GitHub Codespaces
 
-Environment is already configured to work with Github Codespaces, you can find the configuration files in the .devcontainer folder.
+Environment is already configured to work with Github Codespaces, you can find the configuration files in the `.devcontainer` folder.
 
 To start programming just start a new codespace and you are ready to go, don't need to install anything.
+
+### IDE Extensions
+
+Install the Copilot Extension for you IDE:
+
+- [Visual Studio Code Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=vscode)
+- [Visual Studio 2022 Copilot Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension?view=vs-2022)
+- [Visual Studio 2022 Copilot Chat Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022)
+- [JetBrains Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=jetbrains)
 
 ### Work locally
 
@@ -88,3 +98,17 @@ Run:
 - [Develop a chat based on websockets](./challenges/chatwebsockets/chatwebsockets.md)
 - [Behavior Driven Development (BDD) challenge](./challenges/bdd/README.md)
 - [Analysis cryptocurrency market](./challenges/cryptoanalisis/crypto.md)
+
+## Quick Links 
+
+1. [About GitHub Copilot](https://docs.github.com/en/copilot/about-github-copilot)
+
+2. [Getting started with GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
+
+3. [About code referencing in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
+
+4. [Using GitHub Copilot Chat in your IDE](https://docs.github.com/en/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)
+
+5. [Enabling GitHub Copilot in the CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli)
+
+6. [GitHub Copilot Badges and Certifications](https://learn.microsoft.com/en-us/training/browse/?terms=github%20copilot)
