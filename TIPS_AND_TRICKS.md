@@ -103,7 +103,7 @@ GitHub Copilot Chat supports the use of variables to provide additional context 
 - `@terminal /explain #terminalLastCommand`
   - This prompt asks Copilot to explain the last command executed in the active terminal.
 
-## 5. Some tips
+## 4. Some tips
 - ### No need to go outside of the IDE
   You can ask anything coding-related directly within the IDE, eliminating the need to use Google Search or visit stackoverflow.com. Use Copilot Chat as a learning tool. Ask it to explain concepts, provide examples, or suggest best practices. This can be a great way to improve your coding skills.  For example:
     - **"How do I perform a deep copy in JavaScript without using lodash?"**
