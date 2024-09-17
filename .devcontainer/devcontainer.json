@@ -38,7 +38,7 @@
 			]
 		}
 	},
-	"postCreateCommand": "./.devcontainer/scripts/install-cmake.sh; cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/MinimalAPI.sln; dotnet restore ./exercisefiles/dotnet/MinimalAPI.sln"
+	"postCreateCommand": "sudo ./.devcontainer/scripts/install-cmake.sh; cd ./completesolution/node; npm install; cd ../../; dotnet restore ./completesolution/dotnet/MinimalAPI.sln; dotnet restore ./exercisefiles/dotnet/MinimalAPI.sln"
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

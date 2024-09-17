@@ -18,4 +18,5 @@ echo "Installing vcpkg..."
 export VCPKG_ROOT=/usr/local/vcpkg
 export VCPKG_DOWNLOADS=/usr/local/vcpkg-downloads
 export PATH="${PATH}:${VCPKG_ROOT}"
-./install-vcpkg.sh vscode
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+"${DIR}/install-vcpkg.sh" vscode
