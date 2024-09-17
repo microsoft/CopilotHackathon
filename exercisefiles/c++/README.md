@@ -24,14 +24,14 @@ cmake --build build
 - To execute the tests:
 
     ```bash
-      /build/run-tests
+      ./build/run-tests
     ```
 
 ## Exercises
 
 Use GitHub Copilot to assist with the following tasks:
 
-- [ ] Finish the `Distance` Conversion Class and include it in the `main.cpp` (optionally, first implement tests and do a TDD appraoch)
+- [ ] Finish the `Distance` Conversion Class and include it in the `main.cpp` (optionally, first implement tests and do a TDD approach)
 - [ ] Add some Tests for the `Distance::convertDistance`
 - [ ] Refactor all `printf` and `scanf` and use `std::cout` and `std::cin` instead
 - [ ] Add a new Conversion Class for `Weight` to convert in between Kilos and Pounds
