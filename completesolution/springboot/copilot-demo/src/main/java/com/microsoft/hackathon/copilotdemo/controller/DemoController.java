@@ -141,6 +141,9 @@ public class DemoController {
     @GetMapping(value = "/list-files", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> listFiles(@RequestParam(name = "path") String pathString) {
         try {
+            if (pathString.contains("..") || pathString.contains("/") || pathString.contains("\\")) {
+        		throw new IllegalArgumentException("Invalid pathString");
+        	}
             File path = new File(pathString);
             if (!path.exists()) {
                 return ResponseEntity.notFound().build();
@@ -148,9 +151,6 @@ public class DemoController {
             if (!path.isDirectory()) {
                 return ResponseEntity.badRequest().body("Path is not a directory");
             }
-            if (path.contains("..") || path.contains("/") || path.contains("\\")) {
-        		throw new IllegalArgumentException("Invalid path");
-        	}
             File[] files = path.listFiles();
             JSONArray jsonArray = new JSONArray();
             for (File file : files) {
