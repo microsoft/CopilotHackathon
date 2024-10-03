@@ -186,6 +186,9 @@ public class DemoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response listfiles(@QueryParam("path") String path) {
         Objects.requireNonNull(path, "path must not be null");
+        if (path.contains("..") || path.contains("/") || path.contains("\\")) {
+            throw new IllegalArgumentException("Invalid path");
+        }
         ObjectMapper mapper = new ObjectMapper();
         try {
             List<JsonNode> fileList = new ArrayList<>();
@@ -213,6 +216,9 @@ public class DemoResource {
     public Response countWord(@QueryParam("path") String path, @QueryParam("word") String word) {
         Objects.requireNonNull(path, "path must not be null");
         Objects.requireNonNull(word, "word must not be null");
+        if (path.contains("..") || path.contains("/") || path.contains("\\")) {
+            throw new IllegalArgumentException("Invalid path");
+        }
         java.nio.file.Path filePath = Paths.get(path);
         String content;
         int count = 0;
@@ -241,6 +247,9 @@ public class DemoResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response zipFolder(@QueryParam("path") String path) {
         Objects.requireNonNull(path, "path must not be null");
+        if (path.contains("..") || path.contains("/") || path.contains("\\")) {
+            throw new IllegalArgumentException("Invalid path");
+        }
         java.nio.file.Path folderPath = Paths.get(path);
         File folder = folderPath.toFile();
         if (!folder.exists()) {
