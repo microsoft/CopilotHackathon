@@ -4,7 +4,7 @@ Demo project for running labs to evaluate Copilot viability
 
 > Make sure GitHub Copilot is configure and enabled for the current language, just check the status bar on the bottom right corner of VS Code.
 
-## Instructions
+### Exercise 1: Introduction
 
 - Go to the exercisefile folder
 - Open `nodeserver.js` and begin by writing a Nodejs server, check the first suggestions based on the initial text
@@ -23,22 +23,6 @@ server is listening on port 3000
   1 passing (34ms)
 
 ```
-
-### Exercise 1: Introduction
-
-
-- In the NodeServer.js develop the rest of the methods described in the Exercise described in the section below (do not forget to open color.json file in Visual Studio Code, so CoPilot get all the context to make better recommendations)
-- In the Test.js file add the methods to test the functionality
-- Run the tests to verify that all is working 
-- Open the dockerfile file, and fill it, in order to create a docker container with a node image that can run the web server
-- Create command to run docker in port 4000
-- Test that the application is working in port 4000
-- In the **nodeserver.js** file, you can type a new line like //run a curl command to test the server
-
-So we can see how Copilot based on the current file produces a curl command, to be executed in command line
-- Also you can be more specific like: //run a curl command to test the daysBetweenDates method
-
-So it generates a test for a specific method 
 
 ### Exercise 2: Building new functionlities
 
