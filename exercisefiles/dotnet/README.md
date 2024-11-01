@@ -159,6 +159,6 @@ With the previous exercises you have gone through some common activities that de
 - Create documentation
 - Create tests
 
-However, there are many other things that Copilot can helkp you with. Feel free to explore other slash command in the Copilot chat like:
+However, there are many other things that Copilot can help you with. Feel free to explore other slash command in the Copilot chat like:
 - `/fix`: to fix the problems in your code
 - `/explain`: for Copilot to explain you what the code does

@@ -88,6 +88,7 @@ Run:
 ## Labs instructions
 
 - [Node Server](./exercisefiles/node/README.md)
+- [Node Server Typescript](./exercisefiles/node_typescript/README.md)
 - [.NET Web API](./exercisefiles/dotnet/README.md)
 - [Java Spring Boot](./exercisefiles/springboot/README.md)
 - [Java Quarkus](./exercisefiles/quarkus/README.md)
