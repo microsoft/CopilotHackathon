@@ -15,7 +15,6 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@types/assert": "^1.5.11",
     "@types/node": "^22.8.6"
   }
 }
