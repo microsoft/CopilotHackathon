@@ -1,0 +1,21 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "main": "nodeserver.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node nodeserver.js",
+    "test": "mocha test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/assert": "^1.5.11",
+    "@types/node": "^22.8.6"
+  }
+}
