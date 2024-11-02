@@ -34,8 +34,7 @@
 				"ms-dotnettools.csdevkit",
 				"vscjava.vscode-java-pack",
 				"ms-toolsai.jupyter",
-				"ms-python.python",
-				"ms-vscode.vscode-typescript-next"
+				"ms-python.python"
 			]
 		}
 	},
