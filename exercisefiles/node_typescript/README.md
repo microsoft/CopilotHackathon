@@ -43,7 +43,7 @@ The requests that the server must attend are the following:
   * Calculate days between two dates
   * receive by query string 2 parameters date1 and date 2, and calculate the days between those two dates.
 
-  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.js` file. Press enter and wait for Copilot to suggest you the code.
+  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.ts` file. Press enter and wait for Copilot to suggest you the code.
 
 
 - **/Validatephonenumber**: 
@@ -53,7 +53,7 @@ The requests that the server must attend are the following:
   * if phoneNumber is valid return "valid"
   * if phoneNumber is not valid return "invalid"
 
-  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.js` file. Press enter and wait for Copilot to suggest you the code.
+  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.ts` file. Press enter and wait for Copilot to suggest you the code.
 
 
 - **/ValidateSpanishDNI**:
@@ -63,7 +63,7 @@ The requests that the server must attend are the following:
   * if DNI is valid return "valid"
   * if DNI is not valid return "invalid"
 
-  > NOTE: Use above information inside a comment in the `nodeserver.js` file. In this case, you may want to see multiple solutions from Copilot to pick the one that best fits the way to calculate the letter. In order to see the firs 10 suggestions from Copilot press ctrl + enter.
+  > NOTE: Use above information inside a comment in the `nodeserver.ts` file. In this case, you may want to see multiple solutions from Copilot to pick the one that best fits the way to calculate the letter. In order to see the firs 10 suggestions from Copilot press ctrl + enter.
 
 
 - **/ReturnColorCode**:
