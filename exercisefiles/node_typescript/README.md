@@ -27,7 +27,7 @@ server is listening on port 3000
 
 ```
 
-### Exercise 2: Building new functionlities
+### Exercise 2: Building new functionalities
 
 The exercise consist of building a web server using Nodejs that serves the request of various functionality.
 
