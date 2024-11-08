@@ -1,0 +1,25 @@
+{
+  "name": "nodeserver",
+  "version": "1.0.0",
+  "main": "nodeserver.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node nodeserver.js",
+    "test": "mocha test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "escape-html": "^1.0.3",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@types/escape-html": "^1.0.4",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^22.8.6",
+    "mocha": "^10.8.2"
+  }
+}
