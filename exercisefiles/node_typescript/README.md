@@ -134,7 +134,7 @@ The requests that the server must attend are the following:
 
   > **_NOTE:_** Copilot can help you to generate data sets.
 
-### Excercise 2: Document the code
+### Excercise 3: Document the code
 
 Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the `nodeserver.js` file. 
 
@@ -158,6 +158,6 @@ With the previous exercises you have gone through some common activities that de
 - Create documentation
 - Create tests
 
-However, there are many other things that Copilot can helkp you with. Feel free to explore other slash command in the Copilot chat like:
+However, there are many other things that Copilot can help you with. Feel free to explore other slash command in the Copilot chat like:
 - `/fix`: to fix the problems in your code
 - `/explain`: for Copilot to explain you what the code does
