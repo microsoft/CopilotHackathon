@@ -4,7 +4,6 @@
 
 import * as assert from 'assert';
 import * as http from 'http';
-import server from './nodeserver';
 
 describe('Node Server', () => {
     it('should return "key not passed" if key is not passed', (done: Mocha.Done) => {
