@@ -1,6 +1,4 @@
 //write npm command line to install mocha
-//npm i --global mocha
-//npm i --save-dev @types/mocha
 //command to run this test file
 //mocha test.js
 
