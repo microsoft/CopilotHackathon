@@ -136,7 +136,7 @@ The requests that the server must attend are the following:
 
 ### Excercise 3: Document the code
 
-Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the `nodeserver.js` file. 
+Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the `nodeserver.ts` file. 
 
 ### Exercise 4: Building tests
 
