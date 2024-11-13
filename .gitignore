@@ -530,3 +530,26 @@ FodyWeavers.xsd
 *.sln.iml
 .idea/
 
+# C++ specific ignores
+# Object files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+*.a
+*.lib
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+*.cmake
+
+# Build directories
+build/
+bin/
