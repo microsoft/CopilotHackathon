@@ -48,6 +48,11 @@ Install the Copilot Extension for you IDE:
 - [Visual Studio 2022 Copilot Chat Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022)
 - [JetBrains Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=jetbrains)
 
+### Install Copilot CLI
+
+Follow the instructions for your operating system:
+- [Copilot CLI](https://github.com/cli/cli#installation)
+
 ### Work locally
 
 **VisualStudio Code**
