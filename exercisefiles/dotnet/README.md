@@ -120,6 +120,22 @@ _Hint: Pay attention to HttpClient._
 
 > **_NOTE:_** Copilot can also help with these kind of commands locally. The feature is called Copilot in the CLI. You can learn more information about this feature [here](https://docs.github.com/en/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli).
 
+- **/GetFullTextFile**:
+
+  * Read `sample.txt`` and return lines that contains the word "Fusce"
+
+  > **_NOTE:_** Becareful with this implementation, since this normally reads the full content of the file before analizing it, so memory usage is high and may fail when files are too big.
+  >
+  > You can use Copilot Code completion or inline chat. Once done you can also use Copilot Inline Chat to refactor the code to put this logic in a function.
+
+- **/GetLineByLinefromtTextFile**:
+
+  * Read `sample.txt` line by line
+  * Create a promise to read the file line by line, and return a list of lines that contains the word "Fusce"
+  * Return the list of lines
+
+  > **_NOTE:_** You can use Copilot Code completion or inline chat. Once done you can also use Copilot Inline Chat to refactor the code to put this logic in a function.
+
 - **/calculatememoryconsumption**:
 
     * Return the memory consumption of the process in GB, rounded to 2 decimals
