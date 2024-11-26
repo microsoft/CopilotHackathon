@@ -82,6 +82,9 @@ Run:
 **For Python**
 - [Install Python](https://www.python.org/downloads/)
 
+**For C++**
+- Install cmake (Mac: brew install cmake)
+
 ## Labs instructions
 
 - [Node Server](./exercisefiles/node/README.md)
@@ -90,6 +93,7 @@ Run:
 - [Java Quarkus](./exercisefiles/quarkus/README.md)
 - [Python Data Engineer](./exercisefiles/dataengineer/README.md)
 - [Python Data Scientist](./exercisefiles/datascientist/README.md)
+- [C++ Value Sorter](./exercisefiles/cpp/README.md)
 
 ## Challenges instructions
 
