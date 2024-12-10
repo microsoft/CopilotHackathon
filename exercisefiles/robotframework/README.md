@@ -1,7 +1,14 @@
-# Workflow
+# METAR Reader Test Cases
 
-1. Check with copilot that what does the data folder contain
-2. Implement MetarReader.py based on tests/test_metarreader.py
+## Goal
+
+The goal is to create Robot Framework test cases using copilot when the starting point is
+only some sample data.
+
+## Workflow
+
+1. Use copilot to see what the `data` folder contains
+2. Implement `MetarReader.py` based on `tests/test_metarreader.py`
 3. Implement tests based on functional requirements found from this readme
 
 
