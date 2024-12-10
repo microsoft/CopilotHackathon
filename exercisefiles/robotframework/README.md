@@ -7,12 +7,12 @@ only some sample data.
 
 ## Exericses
 
-### Use copilot to see what the `data` folder contains
+### 1. Use copilot to see what the `data` folder contains
 
 Take a look at the `data` folder and ask copilot to explain what it contains. See how
 copilot can identify the contents and parse it for you using just the sample data.
 
-### Implement `MetarReader.py` based on `tests/test_metarreader.py`
+### 2. Implement `MetarReader.py` based on `tests/test_metarreader.py`
 
 The `MetarReader` library needs to satisfy the following functional requirements:
 
@@ -41,7 +41,7 @@ The `MetarReader` library needs to satisfy the following functional requirements
 The unit tests for the `MetarReader` library are already implemented in
 `tests/test_metarreader.py`.
 
-### Implement Robot Framework tests based on functional requirements
+### 3. Implement Robot Framework tests based on functional requirements
 
 The Robot Framework must test the following test cases:
 
