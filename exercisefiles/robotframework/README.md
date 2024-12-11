@@ -43,7 +43,7 @@ The unit tests for the `MetarReader` library are already implemented in
 
 ### 3. Implement Robot Framework tests based on functional requirements
 
-The Robot Framework must test the following test cases:
+The Robot Framework test suite `metar_test.robot` must test the following cases:
 
 - **METAR File Contains Data**
   - Initially, the number of sites should be `0`.
@@ -64,5 +64,5 @@ The Robot Framework must test the following test cases:
 - **Get Remarks**
   - Expect an error when checking if the site `KEHY` has a precipitation sensor.
   - Expect an error when checking if the site `KFDW` has a precipitation sensor.
-  - After adding data from `metar_data.txt`, the site `KEHY` should have a   precipitation sensor.
+  - After adding data from `metar_data.txt`, the site `KEHY` should have a precipitation sensor.
   - Expect an error when checking if the site `KFDW` has a precipitation sensor.
