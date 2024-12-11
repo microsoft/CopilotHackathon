@@ -12,6 +12,8 @@ only some sample data.
 Take a look at the `data` folder and ask copilot to explain what it contains. See how
 copilot can identify the contents and parse it for you using just the sample data.
 
+---
+
 ### 2. Implement `MetarReader.py` based on `tests/test_metarreader.py`
 
 The `MetarReader` library needs to satisfy the following functional requirements:
@@ -39,7 +41,12 @@ The `MetarReader` library needs to satisfy the following functional requirements
   - The system should check if a site has a specific remark (e.g., "AO2" for precipitation sensor).
 
 The unit tests for the `MetarReader` library are already implemented in
-`tests/test_metarreader.py`.
+`tests/test_metarreader.py`. Once your library is ready, the unit tests should pass.
+
+To increase readability of the library, ensure the methods that are intended to be keywords
+have the `robot.api.deco.keyword` decorator.
+
+---
 
 ### 3. Implement Robot Framework tests based on functional requirements
 
