@@ -1,14 +1,17 @@
-# Activate GitHub Copilot using Nodejs 
+# Activate GitHub Copilot using Nodejs and Typescript
 
 Demo project for running labs to evaluate Copilot viability
 
 > Make sure GitHub Copilot is configure and enabled for the current language, just check the status bar on the bottom right corner of VS Code.
 
+## Instructions
+
 ### Exercise 1: Introduction
 
 - Go to the exercisefile folder
-- Open `nodeserver.js` and begin by writing a Nodejs server, check the first suggestions based on the initial text
-- Open `test.js` file and analyze the current test
+- Open `nodeserver.ts` and begin by writing a Nodejs server, check the first suggestions based on the initial text
+- Open `test.ts` file and analyze the current test
+- Use `tsc` to compile 
 - Open a command prompt and run the test (`mocha test.js`)
 - See the result, it should display something like:
 
@@ -40,7 +43,7 @@ The requests that the server must attend are the following:
   * Calculate days between two dates
   * receive by query string 2 parameters date1 and date 2, and calculate the days between those two dates.
 
-  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.js` file. Press enter and wait for Copilot to suggest you the code.
+  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.ts` file. Press enter and wait for Copilot to suggest you the code.
 
 
 - **/Validatephonenumber**: 
@@ -50,7 +53,7 @@ The requests that the server must attend are the following:
   * if phoneNumber is valid return "valid"
   * if phoneNumber is not valid return "invalid"
 
-  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.js` file. Press enter and wait for Copilot to suggest you the code.
+  > **_NOTE:_** Use above information inside the Copilot inline feature in the `nodeserver.ts` file. Press enter and wait for Copilot to suggest you the code.
 
 
 - **/ValidateSpanishDNI**:
@@ -60,7 +63,7 @@ The requests that the server must attend are the following:
   * if DNI is valid return "valid"
   * if DNI is not valid return "invalid"
 
-  > NOTE: Use above information inside a comment in the `nodeserver.js` file. In this case, you may want to see multiple solutions from Copilot to pick the one that best fits the way to calculate the letter. In order to see the firs 10 suggestions from Copilot press ctrl + enter.
+  > NOTE: Use above information inside a comment in the `nodeserver.ts` file. In this case, you may want to see multiple solutions from Copilot to pick the one that best fits the way to calculate the letter. In order to see the firs 10 suggestions from Copilot press ctrl + enter.
 
 
 - **/ReturnColorCode**:
@@ -78,7 +81,7 @@ The requests that the server must attend are the following:
   * Make a call to the joke api and return a random joke using axios (https://official-joke-api.appspot.com/random_joke)
         
 
-- **/MoviesByTitle**:
+- **/MoviesByDirector**:
 
   * Receive by querystring a parameter called director
   * Make a call to the movie api  and return a list of movies of that director using axios
@@ -133,11 +136,11 @@ The requests that the server must attend are the following:
 
 ### Excercise 3: Document the code
 
-Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the `nodeserver.js` file. 
+Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the `nodeserver.ts` file. 
 
 ### Exercise 4: Building tests
 
-We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `test.js` file.
+We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `test.ts` file.
 
 You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
 

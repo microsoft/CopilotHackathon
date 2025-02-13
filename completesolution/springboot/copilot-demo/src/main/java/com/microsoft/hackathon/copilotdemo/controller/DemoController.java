@@ -141,6 +141,9 @@ public class DemoController {
     @GetMapping(value = "/list-files", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> listFiles(@RequestParam(name = "path") String pathString) {
         try {
+            if (pathString.contains("..") || pathString.contains("/") || pathString.contains("\\")) {
+        		throw new IllegalArgumentException("Invalid pathString");
+        	}
             File path = new File(pathString);
             if (!path.exists()) {
                 return ResponseEntity.notFound().build();
@@ -166,6 +169,9 @@ public class DemoController {
     @GetMapping(value = "/count-word", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> countWord(@RequestParam(name = "path") String pathString, @RequestParam(name = "word") String word) {
         try {
+            if (pathString.contains("..") || pathString.contains("/") || pathString.contains("\\")) {
+        		throw new IllegalArgumentException("Invalid pathString");
+        	}
             File file = new File(pathString);
             if (!file.exists()) {
                 return ResponseEntity.notFound().build();
@@ -193,6 +199,9 @@ public class DemoController {
     @GetMapping(value = "/zip-folder", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public ResponseEntity<Resource> zipFolder(@RequestParam(name = "path") String pathString) {
         try {
+            if (pathString.contains("..") || pathString.contains("/") || pathString.contains("\\")) {
+        		throw new IllegalArgumentException("Invalid pathString");
+        	}
             File folder = new File(pathString);
             if (!folder.exists()) {
                 return ResponseEntity.notFound().build();

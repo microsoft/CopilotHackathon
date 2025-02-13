@@ -48,6 +48,11 @@ Install the Copilot Extension for you IDE:
 - [Visual Studio 2022 Copilot Chat Extension](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022)
 - [JetBrains Copilot Extension](https://docs.github.com/en/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot?tool=jetbrains)
 
+### Install Copilot CLI
+
+Follow the instructions for your operating system:
+- [Copilot CLI](https://github.com/cli/cli#installation)
+
 ### Work locally
 
 **VisualStudio Code**
@@ -88,6 +93,7 @@ Run:
 ## Labs instructions
 
 - [Node Server](./exercisefiles/node/README.md)
+- [Node Server Typescript](./exercisefiles/node_typescript/README.md)
 - [.NET Web API](./exercisefiles/dotnet/README.md)
 - [Java Spring Boot](./exercisefiles/springboot/README.md)
 - [Java Quarkus](./exercisefiles/quarkus/README.md)
@@ -115,4 +121,6 @@ Run:
 
 5. [Enabling GitHub Copilot in the CLI](https://docs.github.com/en/copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli)
 
-6. [GitHub Copilot Badges and Certifications](https://learn.microsoft.com/en-us/training/browse/?terms=github%20copilot)
+6. [GitHub Copilot MS Learn Modules](https://learn.microsoft.com/en-us/training/browse/?terms=github%20copilot)
+
+7. [GitHub Copilot Certifications](https://resources.github.com/learn/certifications/)
