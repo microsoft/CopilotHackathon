@@ -88,7 +88,7 @@ Run:
 - [Install Python](https://www.python.org/downloads/)
 
 **For C++**
-- [Install cmake](https://cmake.org/download/)
+- Install cmake (Mac: brew install cmake)
 
 ## Labs instructions
 
@@ -99,7 +99,7 @@ Run:
 - [Java Quarkus](./exercisefiles/quarkus/README.md)
 - [Python Data Engineer](./exercisefiles/dataengineer/README.md)
 - [Python Data Scientist](./exercisefiles/datascientist/README.md)
-- [C++](./exercisefiles/c++/README.md)
+- [C++ Value Sorter](./exercisefiles/cpp/README.md)
 
 ## Challenges instructions
 
