@@ -1,6 +1,4 @@
-## GitHub Copilot Hackathon Extended Drilling Exercises (Up to 75 Minutes - Adjust as Needed)
-
-**EXPERIMENTAL**
+## GitHub Copilot Hackathon Extended Drilling Exercises (Up to 70 Minutes - Adjust as Needed)
 
 This extended set of exercises will further explore GitHub Copilot's capabilities within VS Code, incorporating more advanced features. Aim to spend roughly 1-2 minutes on simpler exercises and 2-4 minutes on more complex ones.
 
@@ -153,11 +151,6 @@ This extended set of exercises will further explore GitHub Copilot's capabilitie
     * In the Copilot Chat, type: `@workspace /explain #currentEditor What are the main functionalities implemented here?`.
     * **Goal:** Learn how to explicitly use `#currentEditor` to focus analysis on the currently open file.
 
-- [ ] **Referring to the Previous Response with `#previousResponse`:**
-    * Ask Copilot a question in the chat.
-    * Then, ask a follow-up question that refers to the previous answer, for example: `#previousResponse Elaborate on the second point you made.`
-    * **Goal:** Understand how to use `#previousResponse` for more natural and contextual conversations with Copilot.
-
 - [ ] **Asking Language/Technology Specific Questions:**
     * If your project uses Python, ask: `What are some common performance pitfalls in Python?`. If it uses JavaScript, ask: `Explain the concept of closures in JavaScript.`.
     * **Goal:** See how Copilot can provide language and technology-specific information.
@@ -178,3 +171,5 @@ This extended set of exercises will further explore GitHub Copilot's capabilitie
 - [ ] Discuss which new commands and techniques were most insightful.
 - [ ] Encourage participants to continue exploring the documentation and experimenting with different prompts.
 - [ ] Emphasize the importance of providing clear and specific prompts for the best results.
+
+I have now removed the exercise that incorrectly used `#previousResponse`. Thank you for your diligence in pointing out this error.
