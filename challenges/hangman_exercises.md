@@ -1,84 +1,176 @@
-# GitHub Copilot Exercises: Customizing and Guiding Copilot
+# GitHub Copilot Exercises: Guided Implementation & Customization (Hangperson App)
 
-**Session Goal:** Learn how to customize GitHub Copilot's behavior using workspace instructions, feature-specific settings, reusable prompts, and agent workflow definitions to align its output with project standards, improve code quality, and automate complex tasks.
+**Session Goal:** Learn to guide and customize GitHub Copilot for new project development, focusing on planning, specification, defining guidelines (code style, quality, testing), creating reusable prompts, defining agent workflows, and iteratively refining instructions.
 
-**Project Context:** We will continue using the Simple Weather CLI Java application from the previous session. Assume the basic project structure and code are available.
+**Project Context:** We start with an empty repository containing only the `README.md` file for setting up the "HangpersonApp" Java console application.
 
 **Key Customization Mechanisms:**
 
-* **Workspace Instructions (`.github/copilot-instructions.md`):** Provides general project context and high-level guidelines to Copilot for all interactions within the workspace.
-* **Custom Instructions (VS Code Settings):** Allows defining specific instructions for different Copilot features (code generation, test generation, code review, etc.) via `settings.json` or by referencing external `.md` files. These can be global or workspace-specific.
-* **Reusable Prompts (`*.prompt.md`):** Markdown files containing specific, parameterized instructions for repeatable, limited-scope tasks, referenced directly in chat prompts.
-* **Agent Workflow Instructions (Separate `.md` File):** Detailed, multi-step instructions, potentially including commands and logic, designed to guide Copilot Agents (like `/new` or hypothetical future agents) through complex workflows.
+* **Workspace Instructions (`.github/copilot-instructions.md`):** General project context.
+* **Custom Instructions (VS Code Settings / Files):** Specific guidelines for code generation, test generation, etc.
+* **Reusable Prompts (`*.prompt.md`):** Parameterized instructions for common, limited-scope tasks.
+* **Agent Workflow Instructions (Separate `.md` File):** Detailed, multi-step instructions for complex agent tasks.
 
 **Prerequisites:**
 
-* Completion of the previous session's exercises (familiarity with basic Copilot Chat features, variables like `#`, participants like `@workspace`).
-* The Simple Weather CLI project opened in VS Code.
+* Familiarity with basic Copilot Chat features (`@workspace`, `#` references, `/explain`, `/tests`, Edits mode, Inline Chat) from previous sessions.
+* JDK (1.8+) and Maven installed.
+* VS Code with GitHub Copilot extensions enabled.
 * Understanding of how to access VS Code settings (`settings.json`).
 
 ---
 
-## Section 1: Workspace-Level Guidance (`.github/copilot-instructions.md`)
+## Section 1: Project Setup & Initial Exploration
 
-**Goal:** Provide Copilot with persistent, high-level context about the project.
+**Goal:** Set up the basic project structure using the provided `README.md` and Copilot prompts, reinforcing basic interaction.
 
 ---
 
-### Exercise 1.1: Define Project Context
+### Exercise 1.1: Initialize Project with Maven
 
-* **Purpose:** To inform Copilot about the project's overall purpose, technology stack, and key architectural decisions so it can provide more relevant assistance.
-* **Aim:** Create a `.github/copilot-instructions.md` file and populate it with essential project context. Verify Copilot acknowledges this context.
+* **Purpose:** To create the standard Maven project structure.
+* **Aim:** Follow the `README.md` instructions to generate the project skeleton using the Maven archetype command in the terminal.
 * **Steps:**
-    1.  In the root of your project workspace, create a folder named `.github` if it doesn't exist.
-    2.  Inside the `.github` folder, create a new file named `copilot-instructions.md`.
-    3.  Add the following content (or adapt it based on the actual project state):
+    1.  Open your system terminal (not necessarily VS Code's integrated terminal yet).
+    2.  Navigate to the directory containing the `README.md` file.
+    3.  Run the Maven command from the README:
+        ```bash
+        mvn archetype:generate -DgroupId=com.example -DartifactId=hangpersonapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+        ```
+    4.  Navigate into the newly created `hangpersonapp` directory:
+        ```bash
+        cd hangpersonapp
+        ```
+    5.  Open this specific `hangpersonapp` folder in a new VS Code window:
+        ```bash
+        code .
+        ```
+    6.  *(Optional)* Open the `README.md` from the *parent* directory in this new VS Code window for reference if needed.
+
+### Exercise 1.2: Configure `pom.xml` with Copilot
+
+* **Purpose:** To configure the project's build settings (Java version, testing framework) using Copilot prompts.
+* **Aim:** Use Copilot Chat to modify the `pom.xml` according to the `README.md` specifications.
+* **Steps:**
+    1.  Open the `pom.xml` file in VS Code.
+    2.  Open the Copilot Chat view.
+    3.  Use the following prompts sequentially, reviewing and applying Copilot's suggestions (likely via diff views or copy-pasting):
+        * `#file:pom.xml /explain Update the properties to set Java compiler source and target versions to 1.8.`
+        * `#file:pom.xml /explain Add the necessary dependency for the JUnit 5 Jupiter engine (use a recent version like 5.8.2 or later). Ensure the scope is 'test'.`
+        * `#file:pom.xml /explain Add and configure the maven-surefire-plugin (version 3.0.0-M5 or later) to work with JUnit 5.`
+        * *(Optional)* `#file:pom.xml /explain Add the maven-assembly-plugin (version 3.3.0 or later) configured to create an executable JAR with dependencies. Set the main class in the manifest to com.example.App.`
+    4.  Verify that the `<properties>`, `<dependencies>`, and `<build>` sections in `pom.xml` resemble the example in the `README.md`.
+
+### Exercise 1.3: Create Basic App and Test Stubs with Copilot
+
+* **Purpose:** To generate the initial `App.java` and `AppTest.java` files using Copilot prompts based on the `README.md`.
+* **Aim:** Use Copilot Chat to generate simple starting code for the main application and its test.
+* **Steps:**
+    1.  **App.java:**
+        * Navigate to `src/main/java/com/example/App.java` (Copilot might offer to create it if it doesn't exist, or you can create it manually).
+        * Open the Copilot Chat view.
+        * Prompt: `#file:src/main/java/com/example/App.java /explain Create a basic public class App in package com.example with a main method that prints 'Hello HangpersonApp!' and a public method getGreeting() that returns the string 'Hello HangpersonApp!'` (Adjust path if needed). Apply the suggestion.
+    2.  **AppTest.java:**
+        * Navigate to `src/test/java/com/example/AppTest.java` (Create if needed).
+        * Open the Copilot Chat view.
+        * Prompt: `#file:src/test/java/com/example/AppTest.java /explain Create a JUnit 5 test class AppTest in package com.example. Add a test method named testGetGreeting that asserts the getGreeting method of the App class returns 'Hello HangpersonApp!'. Include necessary imports.` Apply the suggestion.
+    3.  Verify the generated files match the examples in the `README.md`.
+    4.  **Build & Test:** Open the integrated terminal (View > Terminal) and run `mvn compile` and `mvn test` to ensure the basic setup works.
+
+---
+
+## Section 2: Planning and Specification
+
+**Goal:** Use Copilot to discuss and define the requirements and architecture for the Hangperson game *before* writing implementation code.
+
+---
+
+### Exercise 2.1: Discuss Game Components with Copilot
+
+* **Purpose:** To brainstorm the necessary classes and logic for the Hangperson game.
+* **Aim:** Use Copilot Chat to outline the core components needed.
+* **Steps:**
+    1.  Open the Copilot Chat view.
+    2.  Prompt: `@workspace Based on the description of the Hangperson game in the README (guessing words, tracking incorrect guesses, drawing parts), what core Java classes or components would be needed? Think about separating concerns like game state/logic, word management, user interaction (input/output), and tracking guesses.`
+    3.  Discuss Copilot's suggestions. Ask follow-up questions like "How would the GameEngine interact with the WordSource?" or "What information does the GameState need to track?".
+
+### Exercise 2.2: Generate Architectural Diagram
+
+* **Purpose:** To visualize the relationship between the discussed components.
+* **Aim:** Use Copilot Chat to generate a Mermaid class diagram description based on the component discussion.
+* **Steps:**
+    1.  Continue the chat from Exercise 2.1 or start a new one referencing the previous discussion.
+    2.  Prompt: `@workspace Based on our discussion of components like GameEngine, WordSource, GameState, ConsoleInput, ConsoleOutput, generate a Mermaid class diagram description showing these classes and their primary relationships (e.g., uses, contains).`
+    3.  Copy the generated ```mermaid ... ``` block.
+    4.  Create a new file `docs/Architecture.md` (create `docs` folder if needed).
+    5.  Paste the Mermaid block into the file and save it. You can preview it in VS Code if you have a Mermaid extension installed.
+
+### Exercise 2.3: Generate Game Specification
+
+* **Purpose:** To create a more formal specification for the core game loop.
+* **Aim:** Use Copilot Chat to generate a Markdown specification document.
+* **Steps:**
+    1.  Open the Copilot Chat view.
+    2.  Prompt: `@workspace Generate a Markdown specification for the core gameplay loop of the Hangperson game. It should cover:
+        - Starting a new game (selecting a random word from a predefined source - mention using nouns/verbs files later).
+        - Displaying the initial game state (e.g., underscores for the word, incorrect guesses count).
+        - Handling player letter guesses (validating input, checking if letter is in the word, handling already guessed letters).
+        - Updating game state based on correct/incorrect guesses (revealing letters, incrementing incorrect guess count).
+        - Displaying updated game state after each guess.
+        - Determining win/loss conditions (word fully guessed vs. max incorrect guesses reached).
+        - Ending the game and displaying the outcome.`
+    3.  Review the generated specification for clarity and completeness.
+    4.  Create a new file `docs/specs/GameSpec.md` (create `specs` folder if needed).
+    5.  Paste the generated Markdown into the file and save it.
+
+---
+
+## Section 3: Defining Customization & Guidelines
+
+**Goal:** Configure Copilot's behavior using workspace instructions and custom settings before generating significant code.
+
+---
+
+### Exercise 3.1: Define Workspace Instructions (`.github/copilot-instructions.md`)
+
+* **Purpose:** To provide Copilot with persistent, high-level project context.
+* **Aim:** Create/update the `.github/copilot-instructions.md` file.
+* **Steps:**
+    1.  Ensure the `.github` folder exists at the project root.
+    2.  Create or open `.github/copilot-instructions.md`.
+    3.  Add content relevant to this *new* project:
         ```markdown
-        # Copilot Instructions for Simple Weather CLI App
+        # Copilot Instructions for HangpersonApp
 
         ## Project Overview
-        This is a command-line application written in Java 11+ and built using Apache Maven.
-        Its purpose is to fetch current weather data for a specified city from the OpenWeatherMap API.
+        This is a command-line Hangperson (word guessing) game written in Java 1.8 and built using Apache Maven.
 
         ## Core Technologies
-        - Java (11+)
-        - Maven (for build and dependency management)
-        - JUnit 5 (for testing)
-        - Mockito (for mocking dependencies in tests)
-        - Jackson or org.json (for JSON parsing - check pom.xml)
-        - SLF4j with a simple backend (e.g., slf4j-simple) should be preferred for logging.
+        - Java 1.8
+        - Maven
+        - JUnit 5
 
-        ## Key Architectural Points
-        - Uses OpenWeatherMap API (requires API key via `OPENWEATHERMAP_API_KEY` env var).
-        - `WeatherApiClient` interface defines the contract for API interaction.
-        - `OpenWeatherMapClient` is the current implementation.
-        - `WeatherService` orchestrates fetching data.
-        - `WeatherData` is the primary data model.
-        - Configuration is handled via `ConfigUtil`.
-        - Exceptions should generally be wrapped in `WeatherApiException`.
+        ## Key Architectural Ideas (Initial)
+        - Separate game logic (GameEngine) from user I/O (ConsoleInput/Output).
+        - Manage game state (word to guess, guessed letters, incorrect attempts).
+        - Use word lists (nouns/verbs provided).
+
+        ## General Coding Guidelines
+        - Prefer clear, descriptive variable and method names.
+        - Add Javadoc comments for public methods.
+        - Use try-with-resources for file I/O when reading word lists.
+        - Prefer SLF4j for any necessary logging (though System.out is acceptable for direct game output).
         ```
     4.  Save the file.
-    5.  **Verification:**
-        * Open the Copilot Chat view.
-        * Ensure Copilot is configured to use workspace instructions (this is often automatic, but check Copilot settings if needed).
-        * Ask a question that requires context: `@workspace /explain What logging framework should be preferred in this project?`
-        * Observe if Copilot's answer reflects the information ("SLF4j") provided in the instructions file.
+    5.  **Verification (Optional):** Ask Copilot Chat `@workspace What Java version is this project using?` and see if it correctly answers "1.8".
 
----
+### Exercise 3.2: Define Custom Code Generation Instructions
 
-## Section 2: Feature-Specific Custom Instructions (Settings / Referenced Files)
-
-**Goal:** Tailor Copilot's output for specific features like code and test generation to meet project standards.
-
----
-
-### Exercise 2.1: Customizing Code Generation (Error Handling)
-
-* **Purpose:** To guide Copilot to generate Java code that follows specific error handling practices, addressing common issues like inadequate try-catch blocks.
-* **Aim:** Define custom instructions for code generation in VS Code settings (workspace `settings.json`) to enforce specific try-catch patterns and logging within catch blocks. Generate code and verify.
+* **Purpose:** To guide Copilot towards generating code that meets specific quality standards, especially for error handling and style.
+* **Aim:** Add custom instructions for Java code generation in workspace `settings.json`.
 * **Steps:**
-    1.  **Open Workspace Settings:** Use the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and search for `Preferences: Open Workspace Settings (JSON)`.
-    2.  **Add Custom Instruction:** Add or modify the `github.copilot.editor.instructions` section (or a similar setting specific to code generation if available - check documentation for exact key names as they might evolve). Define instructions for Java:
+    1.  Open Workspace Settings (JSON) (`Cmd+Shift+P` / `Ctrl+Shift+P` -> `Preferences: Open Workspace Settings (JSON)`).
+    2.  Add/modify the `github.copilot.editor.instructions` (or similar) section:
         ```json
         {
           // ... other settings ...
@@ -86,54 +178,46 @@
             "language": {
               "java": {
                 "content": [
-                  "## Java Code Generation Guidelines",
-                  "- **Error Handling:** When generating code that involves I/O, network calls, or other potentially failing operations:",
-                  "  - Use try-with-resources for managing resources like streams or connections.",
-                  "  - Catch specific, relevant exceptions rather than generic `Exception`.",
-                  "  - Inside catch blocks, log the exception using SLF4j `Logger.error(\"Error message\", exception);`. Do not just print the stack trace to System.err.",
-                  "  - If appropriate, re-throw exceptions wrapped in the project's custom `WeatherApiException`."
+                  "## Java Code Generation Guidelines (HangpersonApp)",
+                  "- **Error Handling:**",
+                  "  - For user input (e.g., reading guesses), handle potential exceptions gracefully (e.g., invalid format). Inform the user and prompt again.",
+                  "  - For file I/O (reading word lists), use try-with-resources and catch specific IOExceptions. Propagate errors appropriately (e.g., throw a custom exception or return an empty list). Log errors using SLF4j if available, otherwise System.err.",
+                  "- **Style:**",
+                  "  - Keep methods relatively short and focused on a single responsibility.",
+                  "  - Add comments explaining non-obvious logic."
                 ]
-                // Alternatively, reference a file:
-                // "uri": "file:///${workspaceFolder}/.vscode/copilot_codegen_instructions.md"
+                // Or reference a file: "uri": "file:///${workspaceFolder}/.vscode/copilot_codegen_instructions.md"
               }
             }
-            // ... other languages ...
           }
           // ... other settings ...
         }
         ```
-        *Note: The exact setting key (`github.copilot.editor.instructions`) might change. Refer to the latest Copilot Chat extension settings.*
     3.  Save `settings.json`.
-    4.  **Verification:**
-        * Go to `OpenWeatherMapClient.java`.
-        * Select the code block inside the `fetchWeatherData` method that makes the HTTP request and parses the response.
-        * Use inline chat (`Cmd+I` / `Ctrl+I`) or the Chat view (Edits mode) and ask Copilot to rewrite the selected block, explicitly adding file reading logic *before* the network call (this is just to force potential I/O exceptions): `Rewrite this block. Before making the network call, attempt to read a configuration detail from a dummy file '/tmp/dummy_weather_config.txt'. Handle potential IOExceptions according to the project's error handling guidelines.`
-        * Examine the generated code. Does it use try-with-resources for the file reading? Does it catch `IOException` specifically? Does the catch block use an SLF4j logger (you might need to add the logger field manually or ask Copilot to)?
 
-### Exercise 2.2: Customizing Test Generation
+### Exercise 3.3: Define Custom Test Generation Instructions
 
-* **Purpose:** To ensure generated unit tests adhere to the project's testing standards.
-* **Aim:** Define custom instructions specifically for test generation, specifying framework, assertion style, and naming conventions. Generate tests and verify.
+* **Purpose:** To ensure generated unit tests follow consistent standards.
+* **Aim:** Add custom instructions for Java test generation in workspace `settings.json`.
 * **Steps:**
-    1.  **Open Workspace Settings (JSON):** (As in Exercise 2.1).
-    2.  **Add Test Instruction:** Add or modify the relevant setting for test generation instructions (e.g., `github.copilot.tests.instructions` - check documentation for the exact key).
+    1.  Open Workspace Settings (JSON).
+    2.  Add/modify the relevant setting for test generation (e.g., `github.copilot.tests.instructions` - check actual key):
         ```json
         {
           // ... other settings ...
-          "github.copilot.tests.instructions": { // Hypothetical setting key - check actual
+          "github.copilot.tests.instructions": { // Hypothetical key
             "language": {
               "java": {
                 "content": [
-                  "## Java Test Generation Guidelines",
+                  "## Java Test Generation Guidelines (HangpersonApp)",
                   "- **Framework:** Use JUnit 5 (`org.junit.jupiter.api`).",
-                  "- **Assertions:** Prefer AssertJ assertions (`org.assertj.core.api.Assertions.assertThat`).",
-                  "- **Naming:** Follow the convention `methodName_whenCondition_thenExpectedResult`.",
-                  "- **Setup/Teardown:** Use `@BeforeEach` for setup and `@AfterEach` for teardown.",
-                  "- **Mocking:** Use Mockito (`org.mockito.Mockito`) for mocking dependencies.",
+                  "- **Assertions:** Use standard JUnit 5 assertions (`org.junit.jupiter.api.Assertions.*`).",
+                  "- **Naming:** Use descriptive names, e.g., `testMethodName_WithSpecificInput_ShouldReturnExpected`.",
+                  "- **Setup/Teardown:** Use `@BeforeEach` / `@AfterEach` where appropriate.",
+                  "- **Mocking:** Use Mockito if dependencies need mocking (though initial tests might not require it).",
                   "- **Structure:** Include clear Arrange, Act, Assert sections commented as `// Arrange`, `// Act`, `// Assert`."
                 ]
-                // Alternatively, reference a file:
-                // "uri": "file:///${workspaceFolder}/.vscode/copilot_testgen_instructions.md"
+                // Or reference a file: "uri": "file:///${workspaceFolder}/.vscode/copilot_testgen_instructions.md"
               }
             }
           }
@@ -141,155 +225,162 @@
         }
         ```
     3.  Save `settings.json`.
-    4.  **Verification:**
-        * Go to `WeatherService.java`.
-        * Select the `getWeather` method signature.
-        * Open the Copilot Chat view.
-        * Use the `/tests` command: `#selection /tests Generate unit tests for the selected method, ensuring dependencies are mocked.`
-        * Examine the generated test(s) in `WeatherServiceTest.java`. Do they use JUnit 5 annotations? Do they use AssertJ? Do the names follow the convention? Is the Arrange/Act/Assert structure present?
 
 ---
 
-## Section 3: Reusable Prompts (`.prompt.md`)
+## Section 4: Guided Implementation & Customization Refinement
 
-**Goal:** Create reusable, parameterized prompts for common, limited-scope tasks.
+**Goal:** Implement parts of the game using Copilot, guided by the specifications and custom instructions, while also creating reusable prompts and agent workflows.
 
 ---
 
-### Exercise 3.1: Reusable Prompt for Sequence Diagram Generation
+### Exercise 4.1: Create Reusable Prompt (Word Selection)
 
-* **Purpose:** To create a standard way to ask Copilot to generate Mermaid sequence diagrams from code.
-* **Aim:** Create a `.prompt.md` file that takes selected code and generates a sequence diagram description.
+* **Purpose:** To create a reusable way to generate code for selecting a random word.
+* **Aim:** Create a `.prompt.md` file for generating a Java method to pick a random word from a hardcoded list (as a starting point).
 * **Steps:**
-    1.  Create a folder named `.prompts` (or any name you prefer) in your workspace root.
-    2.  Inside `.prompts`, create a file named `generate_sequence_diagram.prompt.md`.
-    3.  Add the following content:
+    1.  Create a `.prompts` folder in the workspace root if it doesn't exist.
+    2.  Create `.prompts/select_random_word.prompt.md` with the following content:
         ```markdown
         ---
-        name: Generate Sequence Diagram
-        description: Creates a Mermaid sequence diagram description based on the selected Java code.
+        name: Select Random Word (Simple)
+        description: Generates a Java method to select a random word from a predefined list.
         variables:
-          - name: selectedCode
-            description: The Java code selection to diagram.
+          - name: methodName
+            description: The desired name for the method (e.g., selectRandomWord).
+            required: true
+          - name: className
+            description: The name of the class this method should belong to.
             required: true
         ---
 
-        Analyze the following Java code selection:
-
-        ```java
-        {{selectedCode}}
-        ```
-
-        Generate a Mermaid sequence diagram description representing the interactions within this code.
-        - Identify the main actors/classes involved.
-        - Show the sequence of method calls between them.
-        - Use clear message descriptions based on method names.
-        - Format the output enclosed in a Mermaid code block (```mermaid ... ```).
-        ```
-    4.  Save the file.
-    5.  **Verification:**
-        * Go to `WeatherService.java` and select the body of the `getWeather` method.
-        * Open the Copilot Chat view.
-        * Reference the reusable prompt (the exact syntax might vary, could be via a specific UI element or a chat command like `/prompt` or by referencing the file path): `# (select .prompts/generate_sequence_diagram.prompt.md)` (or use the UI if available). Copilot might then prompt for the `selectedCode` variable, which should automatically pick up your editor selection.
-        * Alternatively, try: `#selection # (.prompts/generate_sequence_diagram.prompt.md)`
-        * Examine the output. Does it contain a valid Mermaid sequence diagram block describing the interactions (e.g., `WeatherService -> WeatherApiClient: fetchWeatherData`)?
-
-### Exercise 3.2: Reusable Prompt for Refactoring to Optional
-
-* **Purpose:** To create a quick way to refactor methods that might return null.
-* **Aim:** Create a `.prompt.md` file for refactoring a selected Java method to return `java.util.Optional`.
-* **Steps:**
-    1.  Inside the `.prompts` folder, create `refactor_to_optional.prompt.md`.
-    2.  Add the following content:
-        ```markdown
-        ---
-        name: Refactor to Optional
-        description: Refactors the selected Java method to return java.util.Optional instead of potentially returning null.
-        variables:
-          - name: selectedMethod
-            description: The Java method selection to refactor.
-            required: true
-        ---
-
-        Refactor the following Java method to return `java.util.Optional<ReturnType>` instead of `ReturnType`, where `ReturnType` is the original return type.
-        - If the method originally returned a non-null value `x`, it should now return `Optional.of(x)`.
-        - If the method originally returned `null`, it should now return `Optional.empty()`.
-        - Update the method signature accordingly.
-        - Provide only the refactored method code.
-
-        ```java
-        {{selectedMethod}}
+        Generate a private static Java method named `{{methodName}}` within a class named `{{className}}`.
+        - This method should take no arguments.
+        - It should define a small, hardcoded list of sample words (e.g., "java", "copilot", "maven", "game").
+        - It should randomly select and return one word from this list.
+        - Include necessary imports (e.g., `java.util.List`, `java.util.Random`, `java.util.Arrays`).
+        - Provide only the method code.
         ```
     3.  Save the file.
     4.  **Verification:**
-        * *(Self-Correction: The current codebase might not have a good candidate method returning null. Let's temporarily modify one for the exercise)*. Go to `ConfigUtil.java` and temporarily modify `getApiKey()` to return `null` if the environment variable is not set (instead of throwing an exception).
-        * Select the modified `getApiKey` method.
-        * In Copilot Chat, reference the reusable prompt: `#selection # (.prompts/refactor_to_optional.prompt.md)` (or use UI/command).
-        * Examine the suggested refactored code. Does the return type change to `Optional<String>`? Does it return `Optional.of(apiKey)` or `Optional.empty()` appropriately?
-        * *(Remember to revert the change to `ConfigUtil.java` afterwards!)*
+        * In Copilot Chat, invoke the prompt: `# (select .prompts/select_random_word.prompt.md)`
+        * Copilot will likely ask for `methodName` and `className`. Provide `selectRandomWord` and `WordSource` respectively.
+        * Examine the generated method code. Does it correctly select a random word from a list?
 
----
+### Exercise 4.2: Define Agent Workflow (Core Game Logic)
 
-## Section 4: Agent Workflow Definition (Separate Instruction File)
-
-**Goal:** Define a complex, multi-step workflow for a Copilot Agent to follow, guided by a dedicated instruction file.
-
----
-
-### Exercise 4.1: Define Feature Implementation Workflow
-
-* **Purpose:** To create a detailed instruction set guiding an agent to implement a feature based on a specification, adhering to project standards.
-* **Aim:** Create an `implement_feature_workflow.md` file outlining the steps, checks, and output for implementing the "Units" feature specified earlier.
+* **Purpose:** To define instructions for an agent to implement the core game structure based on the specification.
+* **Aim:** Create `implement_game_core_workflow.md` guiding the agent.
 * **Steps:**
-    1.  Create a file named `implement_feature_workflow.md` in the root of your workspace (or a dedicated `/instructions` folder).
-    2.  Add the following content, structuring it similarly to the security audit example:
+    1.  Create `implement_game_core_workflow.md` in the workspace root or an `/instructions` folder.
+    2.  Add the following content:
         ```markdown
-        # AI Agent Workflow: Implement Feature from Specification
+        # AI Agent Workflow: Implement Hangperson Core Logic
 
-        ## System Prompt for the AI Agent
-
-        You are a meticulous Java developer tasked with implementing a new feature based on a provided specification file. You must adhere strictly to the project's coding standards, including those defined in `.github/copilot-instructions.md` and any relevant custom instructions (like logging and error handling). Your goal is to create or modify the necessary files, add the required logic placeholders, and ensure the code structure aligns with the project's architecture.
+        ## System Prompt
+        You are a Java developer implementing the core logic for a Hangperson game based on a specification. Adhere strictly to project standards (Java 1.8, JUnit 5, custom instructions for error handling/logging defined in settings, context from `.github/copilot-instructions.md`). Focus on creating the structure and basic logic flow.
 
         ## Workflow
+        1.  **Analyze Spec:** Read the provided game specification (`#specFile`).
+        2.  **Create Classes:** Based on the spec and architectural ideas (GameEngine, GameState, WordSource), create new Java files for these classes within the `com.example` package (or a suitable subpackage like `com.example.game`). Define basic class structures.
+        3.  **Implement Word Source (Initial):** In the `WordSource` class, implement a method to get a word. For now, use the hardcoded list approach (potentially reusing logic from the reusable prompt exercise, or generating anew). Later, this can be modified to read from files.
+        4.  **Implement Game State:** Define fields in `GameState` to track: the secret word, the set of correctly guessed letters, the set of incorrectly guessed letters, and the maximum allowed incorrect guesses (e.g., 6). Implement a constructor and methods to update state (e.g., `addCorrectGuess`, `addIncorrectGuess`) and check for win/loss conditions (`isWon`, `isLost`).
+        5.  **Implement Game Engine (Core Loop):** In `GameEngine`, create a primary method (e.g., `playGame`). This method should:
+            * Initialize a new game (get word from `WordSource`, create `GameState`).
+            * Implement the main loop:
+                * Display current game state (underscores, incorrect guesses).
+                * Prompt player for a letter guess (handle basic input for now).
+                * Process the guess (check if valid, update `GameState`).
+                * Check for win/loss condition.
+            * Handle basic user input errors according to custom instructions.
+        6.  **Adhere to Standards:** Ensure generated code follows Java 1.8 syntax, uses specified logging/error handling patterns, and includes basic Javadoc/comments.
+        7.  **Report:** List files created/modified and note areas needing further implementation (e.g., actual user input loop in `App.java`, file reading for words, drawing the hangman).
 
-        1.  **Read Specification:** Analyze the provided feature specification file (`#specFile` variable). Identify the core requirements, affected components, and expected changes.
-        2.  **Identify Target Files:** Based on the specification and existing codebase (`#codebase`), determine which Java files require modification or creation (e.g., `WeatherApp.java`, `WeatherData.java`, potentially new classes).
-        3.  **Implement Argument Parsing:** Modify `WeatherApp.java`'s `main` method (or relevant argument handling logic) to parse the new command-line arguments specified in the spec (e.g., `--units`). Use basic `args` loop checking or integrate with a CLI library if one is already used. Handle potential parsing errors gracefully.
-        4.  **Update Data Model:** Modify `WeatherData.java` if the specification requires storing additional state (e.g., the requested unit). Add necessary fields, constructor parameters, and getters/setters.
-        5.  **Modify Service/Client (If Needed):** If the feature requires changes to how data is fetched or processed (e.g., requesting specific units from the API, performing conversions), modify `WeatherService.java` or `OpenWeatherMapClient.java` accordingly. Add placeholders for complex logic.
-        6.  **Update Output Display:** Modify the output logic (likely in `WeatherApp.java`) to incorporate the new feature, such as displaying temperature in the selected unit according to the spec.
-        7.  **Adhere to Standards:** Throughout implementation, strictly follow guidelines from `.github/copilot-instructions.md` and configured custom instructions, especially regarding logging (SLF4j) and error handling (try-with-resources, specific exceptions, logging errors).
-        8.  **Generate Report:** Create a summary report listing:
-            * Files created.
-            * Files modified with a brief description of changes made to each.
-            * Any assumptions made or areas requiring further manual implementation (e.g., complex conversion logic).
-
-        **DO NOT add complex business logic beyond what's needed for structure and argument handling. Use placeholders like `// TODO: Implement temperature conversion logic here`.**
+        **DO NOT implement the full user interface loop in `App.java` yet. Focus on the core classes and logic.**
 
         ## Input Variables
-        - `#specFile`: Reference to the Markdown specification file (e.g., `#docs/specs/UnitsFeature.md`).
-        - `#codebase`: Access to the entire workspace code for context.
-
+        - `#specFile`: Reference to the game specification file (e.g., `#docs/specs/GameSpec.md`).
+        - `#codebase`: Access to the workspace code.
         ```
-    4.  Save the `implement_feature_workflow.md` file.
+    3.  Save the file.
 
-### Exercise 4.2: Execute the Agent Workflow
+### Exercise 4.3: Execute Agent Workflow & Refine
 
-* **Purpose:** To invoke the defined workflow using Copilot Chat, providing the necessary inputs.
-* **Aim:** Use the Chat view to reference the workflow instruction file and the feature specification file to trigger the agent.
+* **Purpose:** To generate the core game logic using the defined workflow and then refine it.
+* **Aim:** Invoke the agent workflow, review the generated code against standards, and use Copilot (Edits/Ask/Inline) to refactor or improve parts.
 * **Steps:**
-    1.  Ensure the `UnitsFeature.md` specification file exists from the previous session's Exercise 3.7 (or quickly regenerate it using Ask mode).
-    2.  Open the Copilot Chat view.
-    3.  **Invoke the Agent:** Type a prompt referencing the workflow instructions and the specification. The exact syntax for invoking an agent with custom instructions might vary, but try something like this:
+    1.  Ensure `docs/specs/GameSpec.md` exists.
+    2.  In Copilot Chat, invoke the workflow:
         ```
-        # (select implement_feature_workflow.md) /implement # (select docs/specs/UnitsFeature.md)
+        # (select implement_game_core_workflow.md) /implement # (select docs/specs/GameSpec.md)
         ```
-        * *(Note: `/implement` is a hypothetical slash command representing agent execution based on instructions. The actual command or method might differ. You might need to use `/new` or another available agent command and rely on the instructions within the referenced file to guide it.)*
-        * Alternatively, if no specific command exists, try pasting the *content* of `implement_feature_workflow.md` directly into the chat, followed by the reference to the spec file: `Implement the feature described in # (select docs/specs/UnitsFeature.md) following these instructions: [Paste content of implement_feature_workflow.md here]`
-    4.  **Observe and Verify:**
-        * Monitor Copilot's actions. Does it indicate it's following the workflow?
-        * Check the file system. Are the expected files (`WeatherApp.java`, `WeatherData.java`) modified?
-        * Examine the changes. Does the code reflect the requirements (argument parsing, placeholders)? Does it seem to adhere to the logging/error handling guidelines from custom instructions?
-        * Does Copilot generate the summary report requested in the workflow?
+        *(Adjust invocation based on actual Copilot Agent capabilities)*
+    3.  **Review Generated Code:** Examine the created files (`GameEngine.java`, `GameState.java`, `WordSource.java`).
+        * Does the structure match the plan?
+        * Does the error handling (if any generated yet) match the custom instructions?
+        * Is the logic generally correct based on the spec?
+    4.  **Refine (Example):**
+        * Maybe the initial guess processing logic in `GameEngine` is too complex. Select that method.
+        * Use Edits mode: `Refactor this method to improve clarity. Extract the logic for checking if a guess is valid into a separate private helper method.`
+        * Use Inline Chat (`Cmd+I` / `Ctrl+I`) on a specific line: `/explain Explain this line of code.` or select a block and `/fix Fix potential issues in this code block according to project guidelines.` Review suggestions (`Alt+]`).
+    5.  **Iterate:** Repeat review and refinement as needed. Did Copilot miss applying a custom instruction? Try prompting it again with the instruction explicitly mentioned.
+
+---
+
+## Section 5: Testing with Guidelines
+
+**Goal:** Generate unit tests for the implemented game logic, ensuring they follow the defined testing standards.
+
+---
+
+### Exercise 5.1: Generate Tests for Game Logic
+
+* **Purpose:** To create unit tests for the core game logic classes.
+* **Aim:** Use the `/tests` command with the active custom test generation instructions to test `GameState` and potentially parts of `GameEngine`.
+* **Steps:**
+    1.  Open `GameState.java`.
+    2.  In Copilot Chat, prompt: `# (select GameState.java) /tests Generate JUnit 5 tests for the public methods of this class (like constructor, addCorrectGuess, addIncorrectGuess, isWon, isLost). Follow the project's test guidelines.`
+    3.  Copilot should create/update `GameStateTest.java`. Review the generated tests:
+        * Are they JUnit 5?
+        * Do they use the specified assertion style?
+        * Do names follow the convention?
+        * Is the Arrange/Act/Assert structure clear?
+    4.  *(Optional)* Repeat for testable methods in `GameEngine.java`, mocking dependencies like `WordSource` if necessary: `# (select GameEngine.java) /tests Generate JUnit 5 tests for the processGuess method, mocking dependencies. Follow project test guidelines.`
+    5.  Run `mvn test` to see if the generated tests pass (they might need minor adjustments).
+
+---
+
+## Section 6: (Optional) Advanced Customization & Next Steps
+
+**Goal:** Explore further customization or tackle more complex implementation parts.
+
+---
+
+### Exercise 6.1: Refine Instructions or Prompts
+
+* **Purpose:** To improve the guidance given to Copilot based on observed results.
+* **Aim:** Modify the custom instructions (`settings.json` or `.github/copilot-instructions.md`) or reusable prompts (`*.prompt.md`) to address any shortcomings noticed during implementation or testing.
+* **Steps:**
+    1.  Identify an area where Copilot's output didn't fully meet expectations (e.g., error handling wasn't robust enough, test naming was inconsistent despite instructions).
+    2.  Refine the relevant instruction file or prompt file to be more specific or clear.
+    3.  Re-run a relevant generation task (e.g., ask Copilot to regenerate a specific method or test) and see if the output improves.
+
+### Exercise 6.2: Implement File-Based Word Source
+
+* **Purpose:** To replace the hardcoded word list with logic to read from the provided `nouns`/`verbs` files.
+* **Aim:** Use Copilot (Ask, Edits, Completion), guided by custom instructions for I/O error handling, to implement file reading in `WordSource.java`.
+* **Steps:**
+    1.  Open `WordSource.java`.
+    2.  Use Copilot Chat or Edits mode: `# (select WordSource.java) /explain Modify this class to read words from text files named 'nouns.txt' and 'verbs.txt' located in the project root (or a specified resources directory). Load all words into a single list. Handle potential FileNotFoundException and IOException according to the project's error handling guidelines (use try-with-resources, log errors). Update the word selection method to use this list.`
+    3.  Review and refine the generated code, ensuring robust file handling.
+
+### Exercise 6.3: Connect UI Loop
+
+* **Purpose:** To integrate the core game logic with the main application loop for user interaction.
+* **Aim:** Modify `App.java` to create instances of the game classes and run the main game loop, handling user input and displaying output.
+* **Steps:**
+    1.  Open `App.java`.
+    2.  Use Copilot Chat/Edits/Completion: `# (select App.java) # (select GameEngine.java) /explain Modify the main method to: create a GameEngine instance, call its playGame method, and handle the overall application flow.` (You'll likely need more detailed prompts to handle reading user input from the console and displaying game state).
+    3.  Focus on getting the basic loop working, relying on the methods already implemented in `GameEngine`, `GameState`, etc.
 
 ---
