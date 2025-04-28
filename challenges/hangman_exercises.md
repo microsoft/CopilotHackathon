@@ -22,7 +22,7 @@
 
 ## Section 1: Project Setup & Initial Exploration
 
-**Goal:** Set up the basic project structure using the provided `README.md` and Copilot prompts, reinforcing basic interaction.
+**Goal:** Set up the basic project structure using the provided `README.md` and Copilot prompts, reinforcing basic interaction and critical review of build configurations.
 
 ---
 
@@ -47,19 +47,30 @@
         ```
     6.  *(Optional)* Open the `README.md` from the *parent* directory in this new VS Code window for reference if needed.
 
-### Exercise 1.2: Configure `pom.xml` with Copilot
+### Exercise 1.2: Configure `pom.xml` (Guided by User)
 
-* **Purpose:** To configure the project's build settings (Java version, testing framework) using Copilot prompts.
-* **Aim:** Use Copilot Chat to modify the `pom.xml` according to the `README.md` specifications.
+* **Purpose:** To configure the project's build settings (Java version, testing framework) by asking Copilot for specific configurations and critically reviewing the suggestions.
+* **Aim:** Practice guiding Copilot to generate specific `pom.xml` snippets and understand the importance of verifying AI-suggested build configurations.
 * **Steps:**
     1.  Open the `pom.xml` file in VS Code.
     2.  Open the Copilot Chat view.
-    3.  Use the following prompts sequentially, reviewing and applying Copilot's suggestions (likely via diff views or copy-pasting):
-        * `#file:pom.xml /explain Update the properties to set Java compiler source and target versions to 1.8.`
-        * `#file:pom.xml /explain Add the necessary dependency for the JUnit 5 Jupiter engine (use a recent version like 5.8.2 or later). Ensure the scope is 'test'.`
-        * `#file:pom.xml /explain Add and configure the maven-surefire-plugin (version 3.0.0-M5 or later) to work with JUnit 5.`
-        * *(Optional)* `#file:pom.xml /explain Add the maven-assembly-plugin (version 3.3.0 or later) configured to create an executable JAR with dependencies. Set the main class in the manifest to com.example.App.`
-    4.  Verify that the `<properties>`, `<dependencies>`, and `<build>` sections in `pom.xml` resemble the example in the `README.md`.
+    3.  **Guide Copilot Step-by-Step:** Instead of asking Copilot to make changes directly, ask for the necessary XML snippets and review them carefully before adding them manually or using Edits mode.
+        * **Java Version:**
+            * Prompt: `#file:pom.xml /explain Show me the XML needed within the <properties> section to set the Java compiler source and target versions to 1.8.`
+            * Review the suggested `<maven.compiler.source>1.8</maven.compiler.source>` and `<maven.compiler.target>1.8</maven.compiler.target>` properties. Add them inside the existing `<properties>` tags.
+        * **JUnit 5 Dependency:**
+            * Prompt: `#file:pom.xml /explain What is the Maven dependency XML snippet needed to add the JUnit 5 Jupiter engine for testing? Use a recent version like 5.8.2 or later and set the scope to 'test'.`
+            * Review the suggested `<dependency>` block. Verify the `groupId`, `artifactId`, `version`, and `scope`. Add it inside the `<dependencies>` section.
+        * **Surefire Plugin:**
+            * Prompt: `#file:pom.xml /explain Show me the XML configuration for the maven-surefire-plugin (version 3.0.0-M5 or later) needed within the <build><plugins> section to ensure it works correctly with JUnit 5.`
+            * Review the suggested `<plugin>` configuration. Add it inside the `<plugins>` section (create `<build><plugins>` if they don't exist).
+        * **(Optional) Assembly Plugin:**
+            * Prompt: `#file:pom.xml /explain Show me the XML configuration for the maven-assembly-plugin (version 3.3.0 or later) to create an executable JAR with dependencies. How do I configure the main class as com.example.App?`
+            * Review the suggested `<plugin>` configuration carefully, especially the `<mainClass>` element and `<descriptorRef>`. Add it inside the `<plugins>` section.
+    4.  **Verification and Warning:**
+        * Compare your final `pom.xml` structure against the example in the `README.md`.
+        * **Critical Warning:** Build files like `pom.xml` define crucial aspects of your project (dependencies, versions, build process). While Copilot can provide correct snippets, it might suggest outdated versions, incompatible configurations, or unnecessary elements. **Always critically review AI suggestions for `pom.xml`. Verify dependency versions against official repositories (like Maven Central) and plugin configurations against their official documentation.** Do not blindly accept changes to your build configuration.
+    5.  Save the `pom.xml` file.
 
 ### Exercise 1.3: Create Basic App and Test Stubs with Copilot
 
@@ -338,7 +349,7 @@
 * **Purpose:** To create unit tests for the core game logic classes.
 * **Aim:** Use the `/tests` command with the active custom test generation instructions to test `GameState` and potentially parts of `GameEngine`.
 * **Steps:**
-    1.  Open `GameState.java`.
+    1.  Open `GameState.java` (or the file created by the agent in Exercise 4.3).
     2.  In Copilot Chat, prompt: `# (select GameState.java) /tests Generate JUnit 5 tests for the public methods of this class (like constructor, addCorrectGuess, addIncorrectGuess, isWon, isLost). Follow the project's test guidelines.`
     3.  Copilot should create/update `GameStateTest.java`. Review the generated tests:
         * Are they JUnit 5?
@@ -370,7 +381,7 @@
 * **Purpose:** To replace the hardcoded word list with logic to read from the provided `nouns`/`verbs` files.
 * **Aim:** Use Copilot (Ask, Edits, Completion), guided by custom instructions for I/O error handling, to implement file reading in `WordSource.java`.
 * **Steps:**
-    1.  Open `WordSource.java`.
+    1.  Open `WordSource.java` (or the relevant file created by the agent).
     2.  Use Copilot Chat or Edits mode: `# (select WordSource.java) /explain Modify this class to read words from text files named 'nouns.txt' and 'verbs.txt' located in the project root (or a specified resources directory). Load all words into a single list. Handle potential FileNotFoundException and IOException according to the project's error handling guidelines (use try-with-resources, log errors). Update the word selection method to use this list.`
     3.  Review and refine the generated code, ensuring robust file handling.
 
