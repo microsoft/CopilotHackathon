@@ -8,6 +8,20 @@ This document describes how to set up a new testable Java console application us
 *   Apache Maven installed.
 *   GitHub Copilot extension enabled in your IDE.
 
+## Copilot Cheatsheet
+A comprehensive cheatsheet (`hangperson_cheatsheet.md`) is available in this project, summarizing key ways to interact with GitHub Copilot from the previous learning sessions. It includes:
+- Different interaction interfaces (Chat View, Inline Chat)
+- How to provide context using `@workspace` and `#file` references
+- Available commands and modes
+- Best practices for code generation tasks
+- Tips for guiding Copilot's behavior
+
+Review this cheatsheet before starting either development approach - it will help you:
+- Refresh your memory on Copilot's capabilities
+- Guide you through the exercises more effectively
+- Remind you of useful commands and contexts
+- Help you get better results from Copilot's suggestions
+
 ## Setup Steps
 
 1.  **Create Project Structure:**
@@ -19,128 +33,41 @@ This document describes how to set up a new testable Java console application us
 
     This will create a `hangpersonapp` subdirectory with the standard Maven layout (`src/main/java`, `src/test/java`, `pom.xml`).
 
-1.  **Navigate into the Project:**
+2.  **Navigate into the Project:**
     ```bash
     cd hangpersonapp
     ```
 
-1.  **Create a new vscode window to contain only this app**
+3.  **Create a new vscode window to contain only this app**
     ```bash
     code .
     ```
     Start using copilot in that new window (you can open this md file on that window also if needed)
 
-1.  **Update `pom.xml` for Testing and Java Version:**
-    Open the `pom.xml` file.
-    *   **Prompt Copilot:** "Set the Java compiler source and target versions to 1.8."
-    *   **Prompt Copilot:** "Ensure the JUnit 5 Jupiter engine dependency is included for testing."
-    *   **Prompt Copilot:** "Add the maven-surefire-plugin configured for JUnit 5."
-    *   **Prompt Copilot:** (Optional) "Add the maven-assembly-plugin to create an executable JAR with dependencies, setting the main class to com.example.App."
+## Development Approaches
 
-    *Example `pom.xml` structure after Copilot's changes:*
-    ```xml
-    <!-- filepath: pom.xml -->
-    <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <maven.compiler.source>1.8</maven.compiler.source>
-      <maven.compiler.target>1.8</maven.compiler.target>
-      <junit.jupiter.version>5.8.2</junit.jupiter.version> <!-- Or latest -->
-    </properties>
+You have two options for developing this application with GitHub Copilot:
 
-    <dependencies>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>${junit.jupiter.version}</version>
-        <scope>test</scope>
-      </dependency>
-      <!-- Other dependencies -->
-    </dependencies>
+### 1. Structured Learning Path (Recommended for Learning)
+Follow the detailed exercises in `hangperson_exercises.md`. This approach:
+- Focuses on creating custom instructions and reusable prompts
+- Teaches you how to effectively customize Copilot's behavior
+- Provides step-by-step guidance for:
+  - Setting up project infrastructure
+  - Creating custom instructions
+  - Defining reusable prompts
+  - Implementing core game logic
+  - Writing tests
+- Best for learning Copilot's advanced features and best practices
 
-    <build>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-surefire-plugin</artifactId>
-              <version>3.0.0-M5</version> <!-- Or latest compatible -->
-          </plugin>
-          <!-- Optional Assembly Plugin -->
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-assembly-plugin</artifactId>
-              <version>3.3.0</version> <!-- Or latest -->
-              <configuration>
-                  <archive>
-                      <manifest>
-                          <mainClass>com.example.App</mainClass> <!-- Verify this -->
-                      </manifest>
-                  </archive>
-                  <descriptorRefs>
-                      <descriptorRef>jar-with-dependencies</descriptorRef>
-                  </descriptorRefs>
-              </configuration>
-              <executions>
-                  <execution>
-                      <id>make-assembly</id>
-                      <phase>package</phase>
-                      <goals>
-                          <goal>single</goal>
-                      </goals>
-                  </execution>
-              </executions>
-          </plugin>
-      </plugins>
-    </build>
-    ```
+### 2. Quick Start Path
+Use the ready-made prompts in `hangperson_prompts.md`. This approach:
+- Provides immediate prompts to bootstrap your project
+- Gets you coding faster with less setup
+- Includes working example code snippets
+- Best for rapid prototyping or if you're already familiar with Copilot
 
-4.  **Create/Modify Main Application Class:**
-    Navigate to `src/main/java/com/example/App.java`.
-    *   **Prompt Copilot:** "Create a basic main method that prints 'Hello HangpersonApp!'."
-    *   **Prompt Copilot:** "Add a public method `getGreeting` that returns the string 'Hello HangpersonApp!'."
-
-    *Example `App.java` after Copilot's changes:*
-    ```java
-    // filepath: src/main/java/com/example/App.java
-    package com.example;
-
-    public class App {
-        public static void main(String[] args) {
-            System.out.println("Hello HangpersonApp!");
-            // Add application logic here
-        }
-
-        public String getGreeting() {
-            return "Hello HangpersonApp!";
-        }
-    }
-    ```
-
-1.  **Create/Modify Test Class:**
-    Navigate to `src/test/java/com/example/AppTest.java`.
-    *   **Prompt Copilot:** "Convert this test class to use JUnit 5."
-    *   **Prompt Copilot:** "Write a JUnit 5 test method named `testGetGreeting` that asserts the `getGreeting` method of the `App` class returns 'Hello HangpersonApp!'."
-
-    *Example `AppTest.java` after Copilot's changes:*
-    ```java
-    // filepath: src/test/java/com/example/AppTest.java
-    package com.example;
-
-    import org.junit.jupiter.api.Test;
-    import static org.junit.jupiter.api.Assertions.*;
-
-    class AppTest {
-        @Test
-        void shouldAnswerWithTrue() {
-            assertTrue(true); // Keep or remove placeholder
-        }
-
-        @Test
-        void testGetGreeting() {
-            App app = new App();
-            assertEquals("Hello HangpersonApp!", app.getGreeting());
-        }
-    }
-    ```
+Choose the approach that best fits your learning goals and time constraints. The structured path will teach you more about Copilot's capabilities, while the quick start path will get you coding faster.
 
 ## Building and Running
 
