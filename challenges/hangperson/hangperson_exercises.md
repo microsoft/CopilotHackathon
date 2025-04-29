@@ -7,7 +7,7 @@
 **Key Customization Mechanisms:**
 
 * **Workspace Instructions (`.github/copilot-instructions.md`):** General project context.
-* **Custom Instructions (VS Code Settings / Files):** Specific guidelines for code generation, test generation, etc.
+* **Custom Instructions (VS Code Settings / Files):** Specific guidelines for code generation, test generation, etc., configured via `settings.json` often by referencing external `.md` instruction files.
 * **Reusable Prompts (`*.prompt.md`):** Parameterized instructions for common, limited-scope tasks.
 * **Agent Workflow Instructions (Separate `.md` File):** Detailed, multi-step instructions for complex agent tasks.
 
@@ -175,67 +175,89 @@
     4.  Save the file.
     5.  **Verification (Optional):** Ask Copilot Chat `@workspace What Java version is this project using?` and see if it correctly answers "1.8".
 
-### Exercise 3.2: Define Custom Code Generation Instructions
+### Exercise 3.2: Define Custom Code Generation Instructions (via File Reference)
 
-* **Purpose:** To guide Copilot towards generating code that meets specific quality standards, especially for error handling and style.
-* **Aim:** Add custom instructions for Java code generation in workspace `settings.json`.
+* **Purpose:** To guide Copilot towards generating code that meets specific quality standards, especially for error handling and style, using a referenced instruction file.
+* **Aim:** Create a `.md` instruction file for Java code generation guidelines and reference it in workspace `settings.json`.
 * **Steps:**
-    1.  Open Workspace Settings (JSON) (`Cmd+Shift+P` / `Ctrl+Shift+P` -> `Preferences: Open Workspace Settings (JSON)`).
-    2.  Add/modify the `github.copilot.editor.instructions` (or similar) section:
+    1.  **Create Instruction File:**
+        * Create a folder `.vscode` in your workspace root if it doesn't exist.
+        * Inside `.vscode`, create a file named `copilot_codegen_java_instructions.md`.
+        * Add the following content to this new file:
+            ```markdown
+            ## Java Code Generation Guidelines (HangpersonApp)
+
+            - **Error Handling:**
+              - For user input (e.g., reading guesses), handle potential exceptions gracefully (e.g., invalid format). Inform the user and prompt again.
+              - For file I/O (reading word lists), use try-with-resources and catch specific IOExceptions. Propagate errors appropriately (e.g., throw a custom exception or return an empty list). Log errors using SLF4j if available, otherwise System.err.
+            - **Style:**
+              - Keep methods relatively short and focused on a single responsibility.
+              - Add comments explaining non-obvious logic.
+              - Adhere to Java 1.8 syntax compatibility.
+            ```
+        * Save `copilot_codegen_java_instructions.md`.
+    2.  **Open Workspace Settings (JSON):** Use the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and search for `Preferences: Open Workspace Settings (JSON)`.
+    3.  **Reference Instruction File:** Add or modify the relevant setting for code generation instructions (e.g., `github.copilot.editor.instructions` or `github.copilot.chat.codeGeneration.instructions` - check documentation for the exact key name as it might evolve). Reference the file you created:
         ```json
         {
           // ... other settings ...
-          "github.copilot.editor.instructions": {
-            "language": {
-              "java": {
-                "content": [
-                  "## Java Code Generation Guidelines (HangpersonApp)",
-                  "- **Error Handling:**",
-                  "  - For user input (e.g., reading guesses), handle potential exceptions gracefully (e.g., invalid format). Inform the user and prompt again.",
-                  "  - For file I/O (reading word lists), use try-with-resources and catch specific IOExceptions. Propagate errors appropriately (e.g., throw a custom exception or return an empty list). Log errors using SLF4j if available, otherwise System.err.",
-                  "- **Style:**",
-                  "  - Keep methods relatively short and focused on a single responsibility.",
-                  "  - Add comments explaining non-obvious logic."
-                ]
-                // Or reference a file: "uri": "file:///${workspaceFolder}/.vscode/copilot_codegen_instructions.md"
-              }
+          // Example using hypothetical 'github.copilot.chat.codeGeneration.instructions'
+          "github.copilot.chat.codeGeneration.instructions": [
+            {
+              "file": ".vscode/copilot_codegen_java_instructions.md"
+              // You could add more { "text": "..." } or { "file": "..." } entries here
             }
-          }
+          ],
+          // Example using hypothetical 'github.copilot.editor.instructions'
+          // "github.copilot.editor.instructions": {
+          //   "language": { // Note: This language nesting might not be supported per latest schema,
+          //                 // prefer the array approach above if possible.
+          //     "java": {
+          //       "uri": "file:///${workspaceFolder}/.vscode/copilot_codegen_java_instructions.md"
+          //     }
+          //   }
+          // }
           // ... other settings ...
         }
         ```
-    3.  Save `settings.json`.
+        *Choose the setting key that best matches the feature you want to influence (general chat generation vs. inline editor suggestions). The array format (`github.copilot.chat.codeGeneration.instructions` example) is generally more flexible.*
+    4.  Save `settings.json`.
+    5.  **Verification:** Perform the verification steps from the previous version of this exercise (asking Copilot to generate code involving potential I/O) and check if the output adheres to the rules defined in your `.md` file.
 
-### Exercise 3.3: Define Custom Test Generation Instructions
+### Exercise 3.3: Define Custom Test Generation Instructions (via File Reference)
 
-* **Purpose:** To ensure generated unit tests follow consistent standards.
-* **Aim:** Add custom instructions for Java test generation in workspace `settings.json`.
+* **Purpose:** To ensure generated unit tests follow consistent standards using a referenced instruction file.
+* **Aim:** Create a `.md` instruction file for Java test generation guidelines and reference it in workspace `settings.json`.
 * **Steps:**
-    1.  Open Workspace Settings (JSON).
-    2.  Add/modify the relevant setting for test generation (e.g., `github.copilot.tests.instructions` - check actual key):
+    1.  **Create Instruction File:**
+        * Inside the `.vscode` folder, create a file named `copilot_testgen_java_instructions.md`.
+        * Add the following content:
+            ```markdown
+            ## Java Test Generation Guidelines (HangpersonApp)
+
+            - **Framework:** Use JUnit 5 (`org.junit.jupiter.api`).
+            - **Assertions:** Use standard JUnit 5 assertions (`org.junit.jupiter.api.Assertions.*`).
+            - **Naming:** Use descriptive names, e.g., `testMethodName_WithSpecificInput_ShouldReturnExpected`.
+            - **Setup/Teardown:** Use `@BeforeEach` / `@AfterEach` where appropriate.
+            - **Mocking:** Use Mockito if dependencies need mocking (though initial tests might not require it).
+            - **Structure:** Include clear Arrange, Act, Assert sections commented as `// Arrange`, `// Act`, `// Assert`.
+            ```
+        * Save `copilot_testgen_java_instructions.md`.
+    2.  **Open Workspace Settings (JSON).**
+    3.  **Reference Instruction File:** Add or modify the relevant setting for test generation instructions (e.g., `github.copilot.tests.instructions` - check documentation for the exact key).
         ```json
         {
           // ... other settings ...
-          "github.copilot.tests.instructions": { // Hypothetical key
-            "language": {
-              "java": {
-                "content": [
-                  "## Java Test Generation Guidelines (HangpersonApp)",
-                  "- **Framework:** Use JUnit 5 (`org.junit.jupiter.api`).",
-                  "- **Assertions:** Use standard JUnit 5 assertions (`org.junit.jupiter.api.Assertions.*`).",
-                  "- **Naming:** Use descriptive names, e.g., `testMethodName_WithSpecificInput_ShouldReturnExpected`.",
-                  "- **Setup/Teardown:** Use `@BeforeEach` / `@AfterEach` where appropriate.",
-                  "- **Mocking:** Use Mockito if dependencies need mocking (though initial tests might not require it).",
-                  "- **Structure:** Include clear Arrange, Act, Assert sections commented as `// Arrange`, `// Act`, `// Assert`."
-                ]
-                // Or reference a file: "uri": "file:///${workspaceFolder}/.vscode/copilot_testgen_instructions.md"
-              }
-            }
-          }
+          "github.copilot.tests.instructions": [ // Hypothetical key, check actual setting name
+             {
+               "file": ".vscode/copilot_testgen_java_instructions.md"
+             }
+          ]
           // ... other settings ...
         }
         ```
-    3.  Save `settings.json`.
+    4.  Save `settings.json`.
+    5.  **Verification:** Perform the verification steps from the previous version of this exercise (using `/tests` command) and check if the generated tests adhere to the rules defined in your `.md` file.
 
 ---
 
@@ -289,7 +311,7 @@
         # AI Agent Workflow: Implement Hangperson Core Logic
 
         ## System Prompt
-        You are a Java developer implementing the core logic for a Hangperson game based on a specification. Adhere strictly to project standards (Java 1.8, JUnit 5, custom instructions for error handling/logging defined in settings, context from `.github/copilot-instructions.md`). Focus on creating the structure and basic logic flow.
+        You are a Java developer implementing the core logic for a Hangperson game based on a specification. Adhere strictly to project standards (Java 1.8, JUnit 5, custom instructions for error handling/logging defined in referenced files, context from `.github/copilot-instructions.md`). Focus on creating the structure and basic logic flow.
 
         ## Workflow
         1.  **Analyze Spec:** Read the provided game specification (`#specFile`).
@@ -304,7 +326,7 @@
                 * Process the guess (check if valid, update `GameState`).
                 * Check for win/loss condition.
             * Handle basic user input errors according to custom instructions.
-        6.  **Adhere to Standards:** Ensure generated code follows Java 1.8 syntax, uses specified logging/error handling patterns, and includes basic Javadoc/comments.
+        6.  **Adhere to Standards:** Ensure generated code follows Java 1.8 syntax, uses specified logging/error handling patterns from referenced instruction files, and includes basic Javadoc/comments.
         7.  **Report:** List files created/modified and note areas needing further implementation (e.g., actual user input loop in `App.java`, file reading for words, drawing the hangman).
 
         **DO NOT implement the full user interface loop in `App.java` yet. Focus on the core classes and logic.**
@@ -328,7 +350,7 @@
         *(Adjust invocation based on actual Copilot Agent capabilities)*
     3.  **Review Generated Code:** Examine the created files (`GameEngine.java`, `GameState.java`, `WordSource.java`).
         * Does the structure match the plan?
-        * Does the error handling (if any generated yet) match the custom instructions?
+        * Does the error handling (if any generated yet) match the custom instructions defined in your `.vscode/*.md` files?
         * Is the logic generally correct based on the spec?
     4.  **Refine (Example):**
         * Maybe the initial guess processing logic in `GameEngine` is too complex. Select that method.
@@ -347,13 +369,13 @@
 ### Exercise 5.1: Generate Tests for Game Logic
 
 * **Purpose:** To create unit tests for the core game logic classes.
-* **Aim:** Use the `/tests` command with the active custom test generation instructions to test `GameState` and potentially parts of `GameEngine`.
+* **Aim:** Use the `/tests` command with the active custom test generation instructions (referenced via `settings.json`) to test `GameState` and potentially parts of `GameEngine`.
 * **Steps:**
     1.  Open `GameState.java` (or the file created by the agent in Exercise 4.3).
     2.  In Copilot Chat, prompt: `# (select GameState.java) /tests Generate JUnit 5 tests for the public methods of this class (like constructor, addCorrectGuess, addIncorrectGuess, isWon, isLost). Follow the project's test guidelines.`
     3.  Copilot should create/update `GameStateTest.java`. Review the generated tests:
         * Are they JUnit 5?
-        * Do they use the specified assertion style?
+        * Do they use the specified assertion style (standard JUnit 5)?
         * Do names follow the convention?
         * Is the Arrange/Act/Assert structure clear?
     4.  *(Optional)* Repeat for testable methods in `GameEngine.java`, mocking dependencies like `WordSource` if necessary: `# (select GameEngine.java) /tests Generate JUnit 5 tests for the processGuess method, mocking dependencies. Follow project test guidelines.`
@@ -370,10 +392,10 @@
 ### Exercise 6.1: Refine Instructions or Prompts
 
 * **Purpose:** To improve the guidance given to Copilot based on observed results.
-* **Aim:** Modify the custom instructions (`settings.json` or `.github/copilot-instructions.md`) or reusable prompts (`*.prompt.md`) to address any shortcomings noticed during implementation or testing.
+* **Aim:** Modify the custom instructions (`.vscode/*.md` files referenced in `settings.json` or `.github/copilot-instructions.md`) or reusable prompts (`*.prompt.md`) to address any shortcomings noticed during implementation or testing.
 * **Steps:**
     1.  Identify an area where Copilot's output didn't fully meet expectations (e.g., error handling wasn't robust enough, test naming was inconsistent despite instructions).
-    2.  Refine the relevant instruction file or prompt file to be more specific or clear.
+    2.  Refine the relevant instruction file (`.md`) or prompt file (`.prompt.md`) to be more specific or clear.
     3.  Re-run a relevant generation task (e.g., ask Copilot to regenerate a specific method or test) and see if the output improves.
 
 ### Exercise 6.2: Implement File-Based Word Source
