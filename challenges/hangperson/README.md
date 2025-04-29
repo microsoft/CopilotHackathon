@@ -49,7 +49,7 @@ Review this cheatsheet before starting either development approach - it will hel
 You have two options for developing this application with GitHub Copilot:
 
 ### 1. Structured Learning Path (Recommended for Learning)
-Follow the detailed exercises in [./hangperson_exercises.md](./hangperson_exercises.md). This approach:
+Follow the detailed [exercises here](./hangperson_exercises.md). This approach:
 - Focuses on creating custom instructions and reusable prompts
 - Teaches you how to effectively customize Copilot's behavior
 - Provides step-by-step guidance for:
@@ -61,7 +61,7 @@ Follow the detailed exercises in [./hangperson_exercises.md](./hangperson_exerci
 - Best for learning Copilot's advanced features and best practices
 
 ### 2. Quick Start Path
-Use the ready-made prompts in [./hangperson_prompts.md](./hangperson_prompts.md). This approach
+Use the [ready-made prompts here](./hangperson_prompts.md). This approach
 - Provides immediate prompts to bootstrap your project
 - Gets you coding faster with less setup
 - Includes working example code snippets
