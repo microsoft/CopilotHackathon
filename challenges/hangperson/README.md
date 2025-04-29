@@ -9,7 +9,7 @@ This document describes how to set up a new testable Java console application us
 *   GitHub Copilot extension enabled in your IDE.
 
 ## Copilot Cheatsheet
-A comprehensive cheatsheet (`hangperson_cheatsheet.md`) is available in this project, summarizing key ways to interact with GitHub Copilot from the previous learning sessions. It includes:
+A comprehensive [cheatsheet](./hangperson_cheatsheet.md) is available in this project, summarizing key ways to interact with GitHub Copilot from the previous learning sessions. It includes:
 - Different interaction interfaces (Chat View, Inline Chat)
 - How to provide context using `@workspace` and `#file` references
 - Available commands and modes
