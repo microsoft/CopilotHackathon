@@ -34,6 +34,13 @@ Build an **Expense Tracker** microservice that helps users log daily expenses an
 - Focus on current month data to keep calculations simple
 - Use mock data initially to test the UI
 
+### 
+If you are using the Agent mode and notice that the agent is working in the wrong directory, try to add the following line to your prompt:
+```markdown
+Work in the directory backend. When run terminal remember to change the right directory, for example: `cd challenges/expensetracker/backend && <command>`.
+```
+Change the directory to `frontend` when working on the frontend part.
+
 ## 3. Time Needed
 
 **Estimated Duration: 45-60 minutes**
