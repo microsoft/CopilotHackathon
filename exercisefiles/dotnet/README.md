@@ -201,8 +201,15 @@ TODO: Hannu
 - Slash commands: /explain, /fix (inject a bug and see if Copilot can fix it), /optimize (provide a function that can be optimized), /help, /doc
 
 ### Exercise 11: Edits Mode
-TODO: Juha
-- Edit the logic both in application and test code
+Edits mode allows you to target multiple files with a single prompt. This allows refactoring code over multiple files, which would not be feasible using the ask mode.
+
+Note: Agent Mode is currently (6 June 2025) available in public preview in Visual Studio. If Agent Mode is enabled in the settings, the Edits panel is hidden from the UI. To be able to use the Edits panel, you must first disable Agent Mode if you had previously enabled it.
+
+In this exercise scenario, we assume that the business logic of one of the API endpoints has changed, and the change has to be reflected in both application and test code.
+1. Click on the Edits mode button in the chat window.
+2. To target multiple files, you must define the working set. Do this by dragging the files from the files explorer to the Copilot chat window. The working set should include Minimal API application code for the endpoints and the test code generated in the previous exercises.
+3. Write a prompt that targets both the application code and the test code, changing the application in a way that also requires changes in the test code.
+4. Execute the prompt and make sure that the result is correct. Rerun the tests to make sure they still pass.
 
 ### Bonus exercise: Agent mode
 TODO: Hannu
