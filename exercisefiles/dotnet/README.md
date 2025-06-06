@@ -6,7 +6,41 @@ Try different things and see what GitHub Copilot can do for you, like generating
 
 > Make sure GitHub Copilot is configure and enabled for the current laguage, just check the status bar on the bottom right corner of VS Code.
 
-## Instructions
+## Prompt Engineering Tips
+How you formulate your prompts has effects greatly the quality of the responses produced by Copilot. Keep the following core prompt engineering best practices in mind while using Copilot or any LLM based tool.
+
+**Keep the prompts Simple**
+* Don't try to do everything in one prompt
+* Small, specific questions result in better suggestions
+* Break complex tasks into simpler tasks
+
+**Keep the prompts Specific**
+* Highlight the targeted code in the IDE
+* Use unambiguous questions
+* Add enough context to the prompts
+* Be aware of the context Copilot adds automatically to context (open tabs)
+
+**Keep the prompts Short**
+* As short *as possile*
+* Use concise and simple language
+* Correct grammar or complete sentences not important
+
+**Give examples for better context**
+* Example input data
+* Example outputs
+* Example implementations
+
+**Keep history relevant**
+* Do not confuse Copilot with previous questions
+* Opening a new chat session when starting a new topic (by clicking the button)
+
+**Write clean code**
+* Good naming conventions
+* Modular code
+* Clear structure
+* Comments when needed
+
+## Exercise Instructions
 
 The `dotnet` folder contains the `MinimalAPI.sln` solution, with 2 projects:
 
@@ -18,8 +52,6 @@ To run the tests, open a terminal in the `dotnet` folder and run:
 ``` bash
 dotnet test
 ```
-## Prompt Engineering Tips
-TODO: Juha
 
 To run the app, open a terminal in the `dotnet` folder and run:
 
