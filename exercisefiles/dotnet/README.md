@@ -48,6 +48,7 @@ Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration:
 ```
 
 ### Exercise 2: Choosing the models and model selector
+TODO: Juha
 
 ### Exercise 3: Building new functionalities
 
@@ -169,20 +170,26 @@ docker build -t dotnetapp .
 docker run -d -p 8080:80 --name dotnetapp dotnetapp
 ```
 ### Exercise 7: Custom Instructions
+TODO: Juha
 
 ### Exercise 8: Next Edit Suggestions
+TODO: Hannu
 
 ### Exercise 9: Copilot Vision
+TODO: Hannu
 
 ### Exercise 10: Chat participants / references / slash commands drills
+TODO: Hannu
 - Participants: @VS, @Workspace
-- Reference: #solution, #<file>, #<class>, #<method>, #<function>, 
-- Slash commands: /explain, /fix, /optimize, /help, /doc
+- Reference: #solution (make a prompt asking something about the solution), #<file>, #<class/method/function>
+- Slash commands: /explain, /fix (inject a bug and see if Copilot can fix it), /optimize (provide a function that can be optimized), /help, /doc
 
 ### Exercise 11: Edits Mode
+TODO: Juha
 - Edit the logic both in application and test code
 
 ### Bonus exercise: Agent mode
+TODO: Hannu
 
 
 ## Summary
