@@ -81,12 +81,15 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: < 1 ms - MinimalAPI.Tests.dll
 ```
 
-### Exercise 2: Choosing the models and model selector
-TODO: Juha
+### Exercise 2: Choosing the LLM model
+Copilot supports multiple LLM models. In the chat window, you can select any LLM model enabled by your organization's GitHub Copilot administrator. GitHub revises the models constantly. Currently, the default model is GPT 4.1 (6 June 2025), but this could change at short notice. GitHub constantly adds and deprecates models.
+
+1. Study the first section of GitHub's Choosing the right AI model for your task document. It is a good idea to bookmark this page and check it periodically.
+2. Keep the recommendations in mind and choose the correct model depending on the task.
+3. To check which models (and features) your organization has enabled, visit this page on GitHub.com.
+4. As of 4 June 2025, GitHub has moved to premium request-based billing. Each model has a multiplier that determines how many premium requests they consume. Premium request quotas of the developers depend on the Copilot license type and organization policies. See GitHub's documentation for more information.
 
 ### Exercise 3: Building new functionalities
-
-
 Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Copilot:
 
 - **/DaysBetweenDates**: 
