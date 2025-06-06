@@ -47,7 +47,9 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: < 1 ms - MinimalAPI.Tests.dll
 ```
 
-### Exercise 2: Building new functionalities
+### Exercise 2: Choosing the models and model selector
+
+### Exercise 3: Building new functionalities
 
 
 Inside `MinimalAPI\Program.cs` add the following endpoints using the help of Copilot:
@@ -146,17 +148,17 @@ _Hint: Pay attention to HttpClient._
     * Return a random country from the array
     * Return the country and its iso code
 
-### Exercise 3: Document the code
+### Exercise 4: Document the code
 
 Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the Program.cs file. 
 
-### Exercise 4: Building tests
+### Exercise 5: Building tests
 
 We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
 
 You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
 
-### Exercise 5: Create a Dockerfile
+### Exercise 6: Create a Dockerfile
 
 Now that we have the new functionality added and tests covering it, lets create a Dockerfile for the Minimal API project. 
 
@@ -166,6 +168,22 @@ Now that we have the new functionality added and tests covering it, lets create 
 docker build -t dotnetapp .
 docker run -d -p 8080:80 --name dotnetapp dotnetapp
 ```
+### Exercise 7: Custom Instructions
+
+### Exercise 8: Next Edit Suggestions
+
+### Exercise 9: Copilot Vision
+
+### Exercise 10: Chat participants / references / slash commands drills
+- Participants: @VS, @Workspace
+- Reference: #solution, #<file>, #<class>, #<method>, #<function>, 
+- Slash commands: /explain, /fix, /optimize, /help, /doc
+
+### Exercise 11: Edits Mode
+- Edit the logic both in application and test code
+
+### Bonus exercise: Agent mode
+
 
 ## Summary
 
