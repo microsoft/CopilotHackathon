@@ -18,6 +18,8 @@ To run the tests, open a terminal in the `dotnet` folder and run:
 ``` bash
 dotnet test
 ```
+## Prompt Engineering Tips
+TODO: Juha
 
 To run the app, open a terminal in the `dotnet` folder and run:
 
