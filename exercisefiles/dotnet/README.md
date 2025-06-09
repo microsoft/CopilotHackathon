@@ -203,17 +203,13 @@ _Hint: Pay attention to HttpClient._
     * Return a random country from the array
     * Return the country and its iso code
 
-### Exercise 5: Document the code
-
-Documenting code is always a boring and painful task. However, we can use Copilot to document it for us. In the chat, ask Copilot to document the Program.cs file. 
-
-### Exercise 6: Building tests
+### Exercise 5: Building tests
 
 We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
 
 You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
 
-### Exercise 7: Create a Dockerfile
+### Exercise 6: Create a Dockerfile
 
 Now that we have the new functionality added and tests covering it, lets create a Dockerfile for the Minimal API project. 
 
@@ -224,7 +220,7 @@ docker build -t dotnetapp .
 docker run -d -p 8080:80 --name dotnetapp dotnetapp
 ```
 
-### Exercise 8: Next Edit Suggestions
+### Exercise 7: Next Edit Suggestions
 
 Next Edit Suggestions is a feature that allows Copilot to suggest the next edit based on the current context of the code. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step.
 
@@ -263,7 +259,7 @@ You don't have to add endpoint for this exercise to get familiar with the NES.
 
 Next, simply rename Points to Points3D and wait a moment to see how Copilot suggests the next edit. You can also try to add a new property called `Z` and see how Copilot suggests the next edit. Suggestions are incremental, so there is going to be multiple suggestions for the next edit. You can use the `Tab` key to accept the suggestion. Feel free to try different things and see how Copilot suggests the next edit based on the current context of the code in other exercises as well.
 
-### Exercise 9: Copilot Vision
+### Exercise 8: Copilot Vision
 
 Vision is a feature that allows Copilot to understand the context of the code by analyzing the code in the IDE. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step. In this exercise, we will use diagram file under resources folder to generate Terraform code for the infrastructure.
 
@@ -273,7 +269,7 @@ Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat win
 
 You can also test Vision with screenshot of the code, errors or even a about website layout and request for the change based on the screenshot.
 
-### Exercise 10: Chat participants / references / slash commands
+### Exercise 9: Chat participants / references / slash commands
 
 Familiarize yourself with chat participants, references and slash commands available in Visual Studio that you don't know yet.
 
@@ -316,7 +312,8 @@ Slash commands are shortcuts that enable you to write prompts faster without hav
   * Select the API endpoint for random number generation and ask Copilot to document it.
 
 * /help: ask help on how to use Copilot
-### Exercise 11: Edits Mode
+
+### Exercise 10: Edits Mode
 Edits mode allows you to target multiple files with a single prompt. This allows refactoring code over multiple files, which would not be feasible using the ask mode.
 
 Note: Agent Mode is currently (6 June 2025) available in public preview in Visual Studio. If Agent Mode is enabled in the settings, the Edits panel is hidden from the UI. To be able to use the Edits panel, you must first disable Agent Mode if you had previously enabled it.
@@ -344,16 +341,3 @@ Make sure you have Agent mode enabled in your IDE
 3. Ask Copilot to add endpoint for the implemented methods of the Points3D class
 4. Ask Copilot to create tests for the Points3D class and the new endpoint
     - It should automatically recognize the existing test project and add the tests there. If not, guide Copilot to the correct test project by using references in your prompt.
-
-
-## Summary
-
-With the previous exercises you have gone through some common activities that developers usually run:
-- Create new features in the code
-- Work with external APIs
-- Create documentation
-- Create tests
-
-However, there are many other things that Copilot can help you with. Feel free to explore other slash command in the Copilot chat like:
-- `/fix`: to fix the problems in your code
-- `/explain`: for Copilot to explain you what the code does
