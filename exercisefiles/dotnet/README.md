@@ -56,7 +56,7 @@ dotnet test
 To run the app, open a terminal in the `dotnet` folder and run:
 
 **Windows environments**
-``` bash
+``` powershell
 dotnet run --project .\MinimalAPI\MinimalAPI.csproj
 ```
 
@@ -225,7 +225,44 @@ docker run -d -p 8080:80 --name dotnetapp dotnetapp
 ```
 
 ### Exercise 8: Next Edit Suggestions
-TODO: Hannu
+
+Next Edit Suggestions is a feature that allows Copilot to suggest the next edit based on the current context of the code. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step.
+
+Make sure you have Next Edit Suggestions enabled in your IDE
+- Visual Studio Code: File > Preferences > Settings > Search for "copilot nes" and enable
+- Visual Studio: Tools > Options > GitHub > Copilot > Enable Next Edit Suggestions
+
+To test this feature, you can create a new class called `Points` in the `MinimalAPI` project. The class should have the following properties and methods:
+
+```csharp
+namespace MinimalAPI
+{
+    public class Points
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Points(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
+        }
+
+        public double DistanceTo(Points other)
+        {
+            return Math.Sqrt(Math.Pow(other.X - X, 2) + Math.Pow(other.Y - Y, 2));
+        }
+    }
+}
+```
+
+You don't have to add endpoint for this exercise to get familiar with the NES.
+
+Next, simply rename Points to Points3D and wait a moment to see how Copilot suggests the next edit. You can also try to add a new property called `Z` and see how Copilot suggests the next edit. Suggestions are incremental, so there is going to be multiple suggestions for the next edit. You can use the `Tab` key to accept the suggestion. Feel free to try different things and see how Copilot suggests the next edit based on the current context of the code in other exercises as well.
+
 
 ### Exercise 9: Copilot Vision
 TODO: Hannu
@@ -250,6 +287,9 @@ In this exercise scenario, we assume that the business logic of one of the API e
 ### Bonus exercise: Agent mode
 TODO: Hannu
 
+Make sure you have Agent mode enabled in your IDE
+- Visual Studio Code: 
+- Visual Studio: 
 
 ## Summary
 
