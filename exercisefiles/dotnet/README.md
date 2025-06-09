@@ -265,7 +265,14 @@ Next, simply rename Points to Points3D and wait a moment to see how Copilot sugg
 
 
 ### Exercise 9: Copilot Vision
-TODO: Hannu
+
+### Exercise 9: Copilot Vision
+
+Vision is a feature that allows Copilot to understand the context of the code by analyzing the code in the IDE. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step. In this exercise, we will use diagram file under resources folder to generate Terraform code for the infrastructure.
+
+Relative path for the diagram file is: `exercisefiles/dotnet/resources/diagram.png`
+
+Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat window. Ask from Copilot what the diagram is about and what it represents. Copilot should be able to understand the context of the diagram and suggest the next logical step. Then ask Copilot to generate Terraform code for the infrastructure represented in the diagram. Copilot should be able to generate the code based on the context of the diagram.
 
 ### Exercise 10: Chat participants / references / slash commands drills
 TODO: Hannu
