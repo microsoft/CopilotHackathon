@@ -291,11 +291,23 @@ In this exercise scenario, we assume that the business logic of one of the API e
 4. Execute the prompt and make sure that the result is correct. Rerun the tests to make sure they still pass.
 
 ### Bonus exercise: Agent mode
-TODO: Hannu
+Copilot Agent mode enables Copilot to interact directly with your codebase and apply changes automatically. Unlike Edits mode, Agent mode does not require you to define a working set of files. Instead, Copilot analyzes the entire project context and can suggest or implement changes across multiple files as needed. This makes Agent mode especially useful for larger refactoring tasks or when you want Copilot to proactively update your codebase based on broader context.
+
+> **Hint:** While Agent mode analyzes your entire project, adding explicit references to files, classes, or functions in your prompt can significantly improve the accuracy of Copilot's suggestions—especially if Agent mode does not provide the desired results out of the box. Use references to guide Copilot to the most relevant parts of your codebase when needed.
+
+> **Hint:** If you are using **Visual Studio Code**, it would benefit if you have this dotnet project open in the workspace instead of the whole repository. This way, Copilot can focus on the relevant files and provide more accurate suggestions. If you are using **Visual Studio**, opening the solution file (`MinimalAPI.sln`) is sufficient, as Visual Studio automatically sets the context to the solution.
 
 Make sure you have Agent mode enabled in your IDE
-- Visual Studio Code: 
-- Visual Studio: 
+- Visual Studio Code: File > Preferences > Settings > Search for "copilot agent" or navigate to Features > Chat and check "Agent Enabled"
+- Visual Studio: Tools > Options > GitHub > Copilot and check "Enable Agent mode in the chat pane"
+
+1. Open the Copilot chat in Agent mode
+2. Ask Copilot to create Points3D class that supports coordinates
+    - If you already have the file existing from the Next Edit Suggestions exercise, Copilot should recognize it and suggest to update the existing class if even required
+3. Ask Copilot to add endpoint for the implemented methods of the Points3D class
+4. Ask Copilot to create tests for the Points3D class and the new endpoint
+    - It should automatically recognize the existing test project and add the tests there. If not, guide Copilot to the correct test project by using references in your prompt.
+
 
 ## Summary
 
