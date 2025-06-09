@@ -229,8 +229,8 @@ docker run -d -p 8080:80 --name dotnetapp dotnetapp
 Next Edit Suggestions is a feature that allows Copilot to suggest the next edit based on the current context of the code. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step.
 
 Make sure you have Next Edit Suggestions enabled in your IDE
-- Visual Studio Code: File > Preferences > Settings > Search for "copilot nes" and enable
-- Visual Studio: Tools > Options > GitHub > Copilot > Enable Next Edit Suggestions
+- Visual Studio Code: File > Preferences > Settings > Search for "copilot nes" and check "Enable Next Edit Suggestions"
+- Visual Studio: Tools > Options > GitHub > Copilot and check "Enable Next Edit Suggestions"
 
 To test this feature, you can create a new class called `Points` in the `MinimalAPI` project. The class should have the following properties and methods:
 
