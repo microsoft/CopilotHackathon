@@ -263,9 +263,6 @@ You don't have to add endpoint for this exercise to get familiar with the NES.
 
 Next, simply rename Points to Points3D and wait a moment to see how Copilot suggests the next edit. You can also try to add a new property called `Z` and see how Copilot suggests the next edit. Suggestions are incremental, so there is going to be multiple suggestions for the next edit. You can use the `Tab` key to accept the suggestion. Feel free to try different things and see how Copilot suggests the next edit based on the current context of the code in other exercises as well.
 
-
-### Exercise 9: Copilot Vision
-
 ### Exercise 9: Copilot Vision
 
 Vision is a feature that allows Copilot to understand the context of the code by analyzing the code in the IDE. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step. In this exercise, we will use diagram file under resources folder to generate Terraform code for the infrastructure.
