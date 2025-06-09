@@ -273,12 +273,49 @@ Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat win
 
 You can also test Vision with screenshot of the code, errors or even a about website layout and request for the change based on the screenshot.
 
-### Exercise 10: Chat participants / references / slash commands drills
-TODO: Hannu
-- Participants: @VS, @Workspace
-- Reference: #solution (make a prompt asking something about the solution), #<file>, #<class/method/function>
-- Slash commands: /explain, /fix (inject a bug and see if Copilot can fix it), /optimize (provide a function that can be optimized), /help, /doc
+### Exercise 10: Chat participants / references / slash commands
 
+Familiarize yourself with chat participants, references and slash commands available in Visual Studio that you don't know yet.
+
+**Chat participants**
+Chat participants are domain experts that can answer prompts within a specific domain.
+
+* @VS: make queries about Visual Studio. Try the following prompts:
+  * @VS how can I auto format this file?
+  * @VS How can I navigate to a specific line in Visual Studio?
+
+* @workspace: make queries about the whole workspace. @workspace intelligently retrieves and references relevant files and symbols from your workspace to answer these queries. Try the following prompts:
+   * @workspace list the technologies used in this project
+   * @workspace explain the project structure
+   * @workspace where should I put the unit tests?
+
+**References**
+References enable you to target specific parts of your code base with your prompts.
+
+* #solution: reference the entire .NET solution
+* #<file name>: target a specific file
+* #<class/method/function name>: target a specific class etc of the codebase
+  * Create a prompt that targets a class or a file of the exercise project. An example: use @workspace chat participant in conjunction with a reference to a method to locate where in the code base the method is: "@workspace where is the method #CreateHost defined?"
+
+
+**Slash commands**
+Slash commands are shortcuts that enable you to write prompts faster without having to explicitly type everything yourself. Try the following slash commands:
+
+* /fix: tries to detect a bug in the code and propose a fix for it.
+  * Inject a bug in one of the previously implemented API endpoints, select the code and simply type "/fix" in the chat window (ask mode). See whether Copilot is able to detect and fix the problem.
+
+* /explain: explains selected code snippet.
+  * Select one of the API endpoints and make Copilot explain what it does
+
+* /optimize: optimizes complex or inefficient code.
+  * Use Copilot to generate an overly complex API endpoint with e.g. the following prompt:
+    "Create an API endpoint that returns a random number. Make the implementation unnecessarily complicated and inefficient for demo purposes."
+  * Highlight the generated code block and use /optimize to improve the implementation.
+
+* /doc: generate documentation.
+  * Select the API endpoint for random number generation and ask Copilot to document it.
+
+* /help: ask help on how to use Copilot
 ### Exercise 11: Edits Mode
 Edits mode allows you to target multiple files with a single prompt. This allows refactoring code over multiple files, which would not be feasible using the ask mode.
 
