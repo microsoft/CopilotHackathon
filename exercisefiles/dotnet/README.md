@@ -223,8 +223,8 @@ Chat participants are domain experts that can answer prompts within a specific d
 References enable you to target specific parts of your code base with your prompts.
 
 * #solution: reference the entire .NET solution
-* #<file name>: target a specific file
-* #<class/method/function name>: target a specific class etc of the codebase
+* #\<file name>: target a specific file
+* #\<class/method/function name>: target a specific class etc of the codebase
   * Create a prompt that targets a class or a file of the exercise project. An example: use @workspace chat participant in conjunction with a reference to a method to locate where in the code base the method is: "@workspace where is the method #CreateHost defined?"
 
 
