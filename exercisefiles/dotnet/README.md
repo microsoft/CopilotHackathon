@@ -203,73 +203,7 @@ _Hint: Pay attention to HttpClient._
     * Return a random country from the array
     * Return the country and its iso code
 
-### Exercise 5: Building tests
-
-We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
-
-You can leverage Copilot to run the tests. There is a `/tests` command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
-
-### Exercise 6: Create a Dockerfile
-
-Now that we have the new functionality added and tests covering it, lets create a Dockerfile for the Minimal API project. 
-
-- Build the image using Copilot and run the app on port 8080
-
-``` powershell
-docker build -t dotnetapp .
-docker run -d -p 8080:80 --name dotnetapp dotnetapp
-```
-
-### Exercise 7: Next Edit Suggestions
-
-Next Edit Suggestions is a feature that allows Copilot to suggest the next edit based on the current context of the code. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step.
-
-Make sure you have Next Edit Suggestions enabled in your IDE
-- Visual Studio Code: File > Preferences > Settings > Search for "copilot nes" and check "Enable Next Edit Suggestions"
-- Visual Studio: Tools > Options > GitHub > Copilot and check "Enable Next Edit Suggestions"
-
-To test this feature, you can create a new class called `Points` in the `MinimalAPI` project. The class should have the following properties and methods:
-
-```csharp
-namespace MinimalAPI
-{
-    public class Points
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public Points(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
-        public override string ToString()
-        {
-            return $"({X}, {Y})";
-        }
-
-        public double DistanceTo(Points other)
-        {
-            return Math.Sqrt(Math.Pow(other.X - X, 2) + Math.Pow(other.Y - Y, 2));
-        }
-    }
-}
-```
-
-You don't have to add endpoint for this exercise to get familiar with the NES.
-
-Next, simply rename Points to Points3D and wait a moment to see how Copilot suggests the next edit. You can also try to add a new property called `Z` and see how Copilot suggests the next edit. Suggestions are incremental, so there is going to be multiple suggestions for the next edit. You can use the `Tab` key to accept the suggestion. Feel free to try different things and see how Copilot suggests the next edit based on the current context of the code in other exercises as well.
-
-### Exercise 8: Copilot Vision
-
-Vision is a feature that allows Copilot to understand the context of the code by analyzing the code in the IDE. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step. In this exercise, we will use diagram file under resources folder to generate Terraform code for the infrastructure.
-
-Relative path for the diagram file is: `exercisefiles/dotnet/resources/diagram.png`
-
-Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat window. Ask from Copilot what the diagram is about and what it represents. Copilot should be able to understand the context of the diagram and suggest the next logical step. Then ask Copilot to generate Terraform code for the infrastructure represented in the diagram. Copilot should be able to generate the code based on the context of the diagram.
-
-You can also test Vision with screenshot of the code, errors or even a about website layout and request for the change based on the screenshot.
-
-### Exercise 9: Chat participants / references / slash commands
+### Exercise 5: Chat participants / references / slash commands
 
 Familiarize yourself with chat participants, references and slash commands available in Visual Studio that you don't know yet.
 
@@ -312,6 +246,72 @@ Slash commands are shortcuts that enable you to write prompts faster without hav
   * Select the API endpoint for random number generation and ask Copilot to document it.
 
 * /help: ask help on how to use Copilot
+
+### Exercise 6: Generating tests
+
+We will create automated tests to check that the functionality of the previous endpoints is correctly implemented. The tests should be together in the `MinimalAPI.Tests\IntegrationTests.cs` file.
+
+You can leverage Copilot to run the tests. There is a `/tests` slash command that you can directly run from Copilot Chat or by selecting the piece of code you want to create tests for and using the Copilot inline feature. 
+
+### Exercise 7: Create a Dockerfile
+
+Now that we have the new functionality added and tests covering it, lets create a Dockerfile for the Minimal API project. 
+
+- Build the image using Copilot and run the app on port 8080
+
+``` powershell
+docker build -t dotnetapp .
+docker run -d -p 8080:80 --name dotnetapp dotnetapp
+```
+
+### Exercise 8: Next Edit Suggestions
+
+Next Edit Suggestions is a feature that allows Copilot to suggest the next edit based on the current context of the code. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step.
+
+Make sure you have Next Edit Suggestions enabled in your IDE
+- Visual Studio Code: File > Preferences > Settings > Search for "copilot nes" and check "Enable Next Edit Suggestions"
+- Visual Studio: Tools > Options > GitHub > Copilot and check "Enable Next Edit Suggestions"
+
+To test this feature, you can create a new class called `Points` in the `MinimalAPI` project. The class should have the following properties and methods:
+
+```csharp
+namespace MinimalAPI
+{
+    public class Points
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Points(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
+        }
+
+        public double DistanceTo(Points other)
+        {
+            return Math.Sqrt(Math.Pow(other.X - X, 2) + Math.Pow(other.Y - Y, 2));
+        }
+    }
+}
+```
+
+You don't have to add endpoint for this exercise to get familiar with the NES.
+
+Next, simply rename Points to Points3D and wait a moment to see how Copilot suggests the next edit. You can also try to add a new property called `Z` and see how Copilot suggests the next edit. Suggestions are incremental, so there is going to be multiple suggestions for the next edit. You can use the `Tab` key to accept the suggestion. Feel free to try different things and see how Copilot suggests the next edit based on the current context of the code in other exercises as well.
+
+### Exercise 9: Copilot Vision
+
+Vision is a feature that allows Copilot to understand the context of the code by analyzing the code in the IDE. This can be very useful when you are working on a specific piece of code and want Copilot to suggest the next logical step. In this exercise, we will use diagram file under resources folder to generate Terraform code for the infrastructure.
+
+Relative path for the diagram file is: `exercisefiles/dotnet/resources/diagram.png`
+
+Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat window. Ask from Copilot what the diagram is about and what it represents. Copilot should be able to understand the context of the diagram and suggest the next logical step. Then ask Copilot to generate Terraform code for the infrastructure represented in the diagram. Copilot should be able to generate the code based on the context of the diagram.
+
+You can also test Vision with screenshot of the code, errors or even a about website layout and request for the change based on the screenshot.
 
 ### Exercise 10: Edits Mode
 Edits mode allows you to target multiple files with a single prompt. This allows refactoring code over multiple files, which would not be feasible using the ask mode.
