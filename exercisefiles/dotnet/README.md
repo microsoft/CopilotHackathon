@@ -295,7 +295,7 @@ Copilot Agent mode enables Copilot to interact directly with your codebase and a
 
 > **Hint:** While Agent mode analyzes your entire project, adding explicit references to files, classes, or functions in your prompt can significantly improve the accuracy of Copilot's suggestions—especially if Agent mode does not provide the desired results out of the box. Use references to guide Copilot to the most relevant parts of your codebase when needed.
 
-> **Hint:** If you are using **Visual Studio Code**, it would benefit if you have this dotnet project open in the workspace instead of the whole repository. This way, Copilot can focus on the relevant files and provide more accurate suggestions. If you are using **Visual Studio**, opening the solution file (`MinimalAPI.sln`) is sufficient, as Visual Studio automatically sets the context to the solution.
+> **Hint:** If you are using **Visual Studio Code**, it would benefit if you have this dotnet directory (exercisefiles/dotnet) open in the workspace instead of the whole repository. This way, Copilot can focus on the relevant files and provide more accurate suggestions. If you are using **Visual Studio**, opening the solution file (`MinimalAPI.sln`) is sufficient, as Visual Studio automatically sets the context to the solution.
 
 Make sure you have Agent mode enabled in your IDE
 - Visual Studio Code: File > Preferences > Settings > Search for "copilot agent" or navigate to Features > Chat and check "Agent Enabled"
