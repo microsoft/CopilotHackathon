@@ -271,6 +271,8 @@ Relative path for the diagram file is: `exercisefiles/dotnet/resources/diagram.p
 
 Open Copilot chat in Ask or Agent mode and drag the diagram file to the chat window. Ask from Copilot what the diagram is about and what it represents. Copilot should be able to understand the context of the diagram and suggest the next logical step. Then ask Copilot to generate Terraform code for the infrastructure represented in the diagram. Copilot should be able to generate the code based on the context of the diagram.
 
+You can also test Vision with screenshot of the code, errors or even a about website layout and request for the change based on the screenshot.
+
 ### Exercise 10: Chat participants / references / slash commands drills
 TODO: Hannu
 - Participants: @VS, @Workspace
