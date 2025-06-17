@@ -9,7 +9,7 @@
 			"nodeGypDependencies": true,
 			"version": "lts"
 		},
-		"ghcr.io/devcontainers-contrib/features/mocha:2": {
+		"ghcr.io/devcontainers-extra/features/mocha:2": {
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
@@ -17,10 +17,11 @@
 		},
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "17",
-			"installMaven": true
+			"installMaven": true,
+			"mavenVersion": "3.9.10"
 		},
 		"ghcr.io/devcontainers/features/python:1": {
-			"version": "3.8"
+			"version": "3.11"
 		}
 	},
 	"customizations": {
@@ -49,5 +50,5 @@
 	//		}
 	// }
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"	
+	// "remoteUser": "root"
 }
