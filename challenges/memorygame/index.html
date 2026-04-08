@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game — Pokémon Edition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🧠 Pokémon Memory Game</h1>
+    </header>
+
+    <div id="setup-screen">
+        <h2>Game Setup</h2>
+        <div class="setup-option">
+            <label>Grid Size</label>
+            <select id="grid-size">
+                <option value="4">4 × 4 (8 pairs)</option>
+                <option value="6">6 × 6 (18 pairs)</option>
+            </select>
+        </div>
+        <div class="setup-option">
+            <label>Players</label>
+            <select id="num-players">
+                <option value="1">1 Player</option>
+                <option value="2">2 Players</option>
+            </select>
+        </div>
+        <button id="start-btn" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div id="scoreboard">
+            <div id="player1-score" class="score-box active-player">
+                <span class="player-name">Player 1</span>
+                <span class="player-points">0 pairs</span>
+            </div>
+            <div id="player2-score" class="score-box hidden">
+                <span class="player-name">Player 2</span>
+                <span class="player-points">0 pairs</span>
+            </div>
+            <div id="moves-counter">Moves: 0</div>
+        </div>
+        <div id="grid"></div>
+        <button id="restart-btn" onclick="resetGame()">New Game</button>
+    </div>
+
+    <div id="win-modal" class="hidden">
+        <div class="modal-content">
+            <h2 id="win-message"></h2>
+            <p id="win-details"></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
