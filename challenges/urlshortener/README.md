@@ -57,13 +57,20 @@ Quick additions if participants finish early:
 - **Basic Analytics**: Show creation date and last accessed time
 - **Bulk Shortening**: Upload multiple URLs at once
 
+### Advanced Additions (15-20 minutes each):
+- **Add Database**: Use SQLite, MySQL or PostgreSQL for persistent storage
+- **Use Docker to initialize and run the database**: Create a Dockerfile and docker-compose.yml to set up the database environment
+- **Use MCP Servers**: 
+  - Configure MCP to interact with the database for storing URL mappings and analytics data
+  - Implement MCP servers to handle Frontend test 
+
 ## 5. Solution Description
 
 ### Architecture Overview:
 Simple client-server architecture with minimal components - perfect for rapid development with AI coding assistance.
 
 ### Backend Implementation:
-- **Framework**: Java, Express.js, Flask, or .NET Core minimal API
+- **Framework**: Choose your preferred framework, example: Java, Express.js, Flask, or .NET Core minimal API
 - **Data Storage**: In-memory object/dictionary (no database needed)
 - **Core Logic**: 
   - Generate random 6-character alphanumeric codes
