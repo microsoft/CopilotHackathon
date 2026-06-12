@@ -19,8 +19,9 @@ Build a **URL Shortener** microservice (like bit.ly or tinyurl) that converts lo
 ## 2. Hints
 
 ### Technical Implementation Hints:
+- **Design**: Use GitHub Copilot to make a good architecture design. Identify challenges like performance, scalability, and security. 
 - **Short Code Generation**: Use random alphanumeric strings (6-8 characters) or base62 encoding
-- **Storage**: Simple in-memory dictionary/map or array for URL mappings
+- **Storage**: Simple in-memory dictionary/map or array for URL mappings or use a cache
 - **Validation**: Check if input is a valid URL format
 - **Frontend**: Single page with input form and results list
 - **API Endpoints**: Just 2-3 endpoints needed: create short URL, redirect, and optional list
@@ -58,7 +59,7 @@ Quick additions if participants finish early:
 - **Bulk Shortening**: Upload multiple URLs at once
 
 ### Advanced Additions (15-20 minutes each):
-- **Add Database**: Use SQLite, MySQL or PostgreSQL for persistent storage
+- **Add Database**: Use Redis, SQLite, MySQL or PostgreSQL for persistent storage
 - **Use Docker to initialize and run the database**: Create a Dockerfile and docker-compose.yml to set up the database environment
 - **Use MCP Servers**: 
   - Configure MCP to interact with the database for storing URL mappings and analytics data
