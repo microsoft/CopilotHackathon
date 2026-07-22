@@ -1,1 +1,1 @@
-# Build a java application image based on openjdk 17 and run it on port 8080
+# Build a java application image based on openjdk 21 and run it on port 8080

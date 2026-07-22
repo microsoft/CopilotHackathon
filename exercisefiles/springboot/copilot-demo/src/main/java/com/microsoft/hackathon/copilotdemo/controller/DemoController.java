@@ -10,3 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 * If the key is passed, return "hello <key>".
 * 
 */
+@RestController
+public class DemoController {
+    
+    @GetMapping("/hello")
+    public String hello(@RequestParam(value = "key", required = false) String key) {
+        if (key == null || key.isEmpty()) {
+            return "key not passed";
+        }
+        return "hello " + key;
+    }
+}
