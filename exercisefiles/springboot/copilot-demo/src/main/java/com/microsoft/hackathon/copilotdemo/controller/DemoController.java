@@ -15,3 +15,5 @@ public class DemoController {
         return "hello " + key;
     }
 }
+// Validate the format of a spanish phone number (+34 prefix, then 9 digits, starting with 6, 7 or 9). The operation should receive a phone number as parameter and return true if the format is correct, false otherwise.
+curl <http://localhost:8080/hello?key=world
